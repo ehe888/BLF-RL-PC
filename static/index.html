@@ -16,6 +16,8 @@
         <div class="site">
             <div id='content' class="section site-content">
                 <img class="content-background" src="images/bg.jpg" alt="background"/>
+                <div class="dump-contract"></div>
+                <div class="trash-bin"></div>
                 <div id="hotspot-1" class="hotspot" px="768" py="432">
                     <div class="hotspot-shining"></div>
                     <img src="images/star.png" alt="热点1：俏卷是潮流" />
@@ -41,6 +43,7 @@
                     <img src="images/star.png" alt="热点3：offline instore selfie photos" />
                 </div>
             </div>
+
             <div class="content-foreground">
                 <a class="sitting-dog animated" href="#">
                     <img src="images/dog.png" alt="sitting dog"/>
@@ -57,20 +60,29 @@
                                 <li>
                                     <div id="mag_nav_img_first">
                                         <img src="images/mag_nav_bg.jpg" alt="3S问题" />
-                                        <div id="nav-mask-first" class="mag-nav-mask"></div>
+                                        <div id="nav-mask-first" class="mag-nav-mask" val="1"></div>
+                                    </div>
+                                    <div class="mag-nav-tip">
+                                        <img class="mag-nav-tip-img1" src="images/mag_nav_tip1.png" />
                                     </div>
                                 </li><!--
                                 --><li>
-                                    <div id="mag_nav_img_first">
-                                    <img src="images/mag_nav_bg.jpg" alt="3S问题" />
-                                    <div id="nav-mask-second" class="mag-nav-mask"></div>
-                                </div>
+                                    <div id="mag_nav_img_second">
+                                        <img src="images/mag_nav_bg.jpg" alt="3S问题" />
+                                        <div id="nav-mask-second" class="mag-nav-mask" val="2"></div>
+                                    </div>
+                                    <div class="mag-nav-tip">
+                                        <img class="mag-nav-tip-img2" src="images/mag_nav_tip2.png" />
+                                    </div>
                                 </li><!--
                                 --><li>
-                                    <div id="mag_nav_img_first">
-                                    <img src="images/mag_nav_bg.jpg" alt="3S解决" />
-                                    <div id="nav-mask-third" class="mag-nav-mask"></div>
-                                </div>
+                                    <div id="mag_nav_img_third">
+                                        <img src="images/mag_nav_bg.jpg" alt="3S解决" />
+                                        <div id="nav-mask-third" class="mag-nav-mask" val="3"></div>
+                                    </div>
+                                    <div class="mag-nav-tip">
+                                        <img class="mag-nav-tip-img3" src="images/mag_nav_tip3.png" />
+                                    </div>
                                 </li>
                             </ul>
                             <img class='mag-nav-hint' src="images/mag_nav_hint.png" alt="滑动鼠标切换内容"/>
@@ -80,12 +92,30 @@
                             <div id="mag-page-0" class="mag-page-ct active">
                                 <img class="page-number" src="images/page_number_1.png" />
                                 <img class="star-mask-fore" src="images/bright_star_mask.png"/>
+                                <div class="page-conent-intro">
+                                    <img src="images/mag_intro.png" />
+                                </div>
                             </div>    
                             <div id="mag-page-1" class="mag-page-ct inactive">
+                                <img class="page-number" src="images/page_number_1.png" />
+                                <img class="star-mask-fore" src="images/bright_star_mask.png"/>
+                                <div class="page-conent-intro">
+                                    <img src="images/mag_first.png" />
+                                </div>
                             </div>    
                             <div id="mag-page-2" class="mag-page-ct inactive">
+                                <img class="page-number" src="images/page_number_1.png" />
+                                <img class="star-mask-fore" src="images/bright_star_mask.png"/>
+                                <div class="page-conent-intro">
+                                    <img src="images/mag_second.png" />
+                                </div>
                             </div>    
                             <div id="mag-page-3" class="mag-page-ct inactive">
+                                <img class="page-number" src="images/page_number_1.png" />
+                                <img class="star-mask-fore" src="images/bright_star_mask.png"/>
+                                <div class="page-conent-intro">
+                                    <img src="images/mag_third.png" />
+                                </div>
                             </div>    
                         </div>
                     </div>
@@ -99,6 +129,39 @@
             <div id="hotspot-2-2-ct" class="hotspot-ct" width="1186" height="620">
                 <div class="hotspot-ct-bg">
                     <img src="images/float_close.png" alt='close float hotspot' class="hotspot-close"/>
+                    <div id="hs-content-2-2" class="hotspot-content" width="1068" height="534">
+                        <div class="hs2-2-slide-wrapper">
+                            <div class="page1 animated">
+                                <ul class="secret-list">
+                                    <li>
+                                        <div class="photo" width="324" height="411">
+                                            <img src="images/secret_photo_1.png" />
+                                        </div>
+                                        <p>革命性“翘小姐刷头” <br/>首次将“翘睫钩”嫁接到<br/>刷毛；配合拥有全球
+                                            <br/>通用尺寸的弧形刷头，<br/>一刷魅惑“钩”人。</p>
+                                    </li>
+                                    <li>
+                                        <div class="photo">
+                                            <img src="images/secret_photo_2.png" />
+                                        </div>
+                                        <p>蕴含维他命B5和丝氨酸，<br/>配合轻盈快干配方，<br/>塑型同时呵护睫毛，<br/>带来持久滋养和迷人卷翘。</p>
+                                    </li>
+                                    <li>
+                                        <div class="photo">
+                                            <img src="images/secret_photo_3.png" />
+                                        </div>
+                                        <p>特殊刷管通道设计，<br/>精确控制每一次刷头的取量。
+                                            <br/>确保每次刷头留有适量膏体，<br/>精确卷翘每一根睫毛<br/>却又不导致结块烦恼。</p>
+                                    </li>
+                                </ul>
+                                <img class="shining-star" src="images/hs2_2_ad_star.png" alt="stars"/>
+                                <img class="next-page-arrow" src="images/arrow_left.png" alt="next page"/>
+                            </div><!--
+                            --><div class="page2 animated">
+                                <img class="prev-page-arrow" src="images/arrow_right.png" alt="next page"/>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
             </div>
             <div id="hotspot-2-3-ct" class="hotspot-ct" width="940" height="584">

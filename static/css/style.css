@@ -97,6 +97,28 @@ a:focus {
     z-index: 999;
 }
 
+.trash-bin {
+    position: absolute;
+    right: 16.291230893001%;
+    bottom: 5.428571428571%;
+    width: 3.680611423974%;
+    height: 38.714285714286%;
+    background: url(../images/trash_bin.png) no-repeat center center;
+}
+
+.dump-contract {
+    position: absolute;
+    right:  8.226065969429%; /* 409/4972*/
+    top:    20.857142857143%; /* 146/700*/    
+    width:  9.352373290426%; /* 465/4972 */
+    height: 56%; /* 392/700*/
+    background: url(../images/dump_contract.png) no-repeat center center;
+    transform: perspective( 600px ) rotateY( 45deg );
+    -webkit-transform: perspective( 600px ) rotateY( 18deg );
+    -o-transform: perspective( 600px ) rotateY( 45deg );
+    -moz-transform: perspective( 600px ) rotateY( 45deg );
+}
+
 .hotspot-ct {
     position: absolute;
     display: none; /* default hide the container */
@@ -138,6 +160,99 @@ a:focus {
     top: 6.370967741936%;
     background: url(../images/magzine_bg.png) no-repeat center center;
     background-size: 100% 100%;
+}
+
+#hs-content-2-2 {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 90.050590219224%; 
+    height: 86.129032258065%;
+    top: 6.935483870968%; 
+}
+.hs2-2-slide-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+#hs-content-2-2 .page1 {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    background: url(../images/hs2_2_ad_bg.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+#hs-content-2-2 .page2 {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    background: url(../images/hs2_2_ad2_bg.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
+#hs-content-2-2 .shining-star {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+
+.next-page-arrow {
+    position: absolute;
+    display: block;
+    width: 2.399040383846%;
+    right: 2.399040383846%;
+    top: 45.72%;
+}
+
+.prev-page-arrow {
+    position: absolute;
+    display: block;
+    width: 2.399040383846%;
+    left: 2.399040383846%;
+    top: 45.72%;
+}
+
+.next-page-arrow:hover {
+    cursor: pointer;
+}
+.prev-page-arrow:hover {
+    cursor: pointer;
+}
+
+.secret-list {
+    position: absolute;
+    top: 24.8%;
+    width: 100%;
+    height: 75.2%;
+}
+.secret-list li {
+    display: inline-block;
+    width: 12.954818072771%;
+    height: 100%;
+    vertical-align: top;
+}
+.secret-list li:first-child {
+    margin-left: 48.180727708916%;
+}
+.secret-list li .photo {
+    display: block;
+    top: 0;
+    width: 100%;
+    margin-bottom: 2%;
+}
+.secret-list li p {
+    font-size: 0.53em;
+    padding-left: 0.55555em;
 }
 
 /*
@@ -186,6 +301,8 @@ a:focus {
     margin-bottom: 2%;
 }
 
+
+
 .mag-bottom-icon {
     position: relative;
     display: block;
@@ -204,12 +321,31 @@ a:focus {
     display: inline-block;
     width: 24.828314844163%;
     height: 10.406885758998%;
+    vertical-align: top;
 }
 
 .mag-nav li > div {
     position: relative;
     display: block;
     height: 100%;
+}
+
+.mag-nav-tip {
+    position: relative;
+    display: block;
+    margin-top: 2%;
+}
+.mag-nav-tip-img1  {
+    width: 73.191489361702%;
+    margin: auto;
+}
+.mag-nav-tip-img2  {
+    width: 73.191489361702%;
+    margin: auto;
+}
+.mag-nav-tip-img3  {
+    width: 73.191489361702%;
+    margin: auto;
 }
 
 .mag-nav-mask {
@@ -264,9 +400,18 @@ a:focus {
 
   
 .mag-page-ct {
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
     width: 100%;
     height: 100%;
+}
+
+.mag-page-ct.active {
+    display: block;
+}
+.mag-page-ct.inactive {
+    display: none;
 }
 
 .page-number {
@@ -282,6 +427,7 @@ a:focus {
     position: absolute;
     top: 6.662804171495%;
     left: 1.901743264659%;
+    width: 46.064447966191%;
 }
 
 .sitting-dog {
@@ -292,6 +438,10 @@ a:focus {
     left: 26.6%;
     vertical-align: top;
 }
+
+.page-conent-intro {
+}
+
 
 /*
  * header section

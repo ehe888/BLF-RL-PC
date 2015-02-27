@@ -523,7 +523,7 @@ a:focus {
 .sitting-dog {
     display:none;
     position: absolute;
-    bottom: 0;
+    bottom: -5.714285714286%;
     max-width: 351px;
     left: 70.6%;
     vertical-align: top;

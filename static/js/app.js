@@ -15,8 +15,8 @@ var dh = $(window).height(),
 var resetBg = function(){
     dh = $(window).height(),
        dw = $(window).width(),
-       actualWidth = 4972/bgHeight * dh;
-    $(".site-content").height(dh).width(actualWidth);
+       actualWidth = 4972/bgHeight * (dh >= 700 ? dh : 700);
+    $(".site-content").height(dh >= 700 ? dh : 700).width(actualWidth);
 }
 
 var resetDog = function(){

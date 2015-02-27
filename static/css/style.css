@@ -1,3 +1,5 @@
+ @font-face { font-family: DINCode; src: url('dincond-black-opentype.otf'); }
+
 /* 
  * Basic Reset
  */
@@ -104,6 +106,7 @@ a:focus {
     width: 3.680611423974%;
     height: 38.714285714286%;
     background: url(../images/trash_bin.png) no-repeat center center;
+    background-size: 100% 100%;
 }
 
 .dump-contract {
@@ -113,10 +116,39 @@ a:focus {
     width:  9.352373290426%; /* 465/4972 */
     height: 56%; /* 392/700*/
     background: url(../images/dump_contract.png) no-repeat center center;
+    background-size: 100% 100%;
+    
     transform: perspective( 600px ) rotateY( 45deg );
-    -webkit-transform: perspective( 600px ) rotateY( 18deg );
+    -webkit-transform: perspective( 800px ) rotateY( 12deg );
     -o-transform: perspective( 600px ) rotateY( 45deg );
     -moz-transform: perspective( 600px ) rotateY( 45deg );
+ /*   
+    min-height: 392px;
+    min-width: 465px;*/
+}
+
+.sisters-count {
+    position: absolute;
+    width: 18.49935316947%;
+    height: 7.553956834532%;
+    top: 25.820143884892%;
+    left: 19.01681759379%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.sisters-count li {
+    display: inline-block;
+    height: 100%;
+    width: 19.58041958042%;
+    color: #FFF;
+    font-family: 'DINCode';
+}
+
+.sisters-count li:nth-child(even) div {
+    background: url(../images/qiyue_bg1.png) no-repeart center center;
+    background-size: 100% 100%;
+    
 }
 
 .hotspot-ct {
@@ -170,7 +202,7 @@ a:focus {
     height: 86.129032258065%;
     top: 6.935483870968%; 
 }
-.hs2-2-slide-wrapper {
+#hs-content-2-2 .slide-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -250,9 +282,57 @@ a:focus {
     width: 100%;
     margin-bottom: 2%;
 }
-.secret-list li p {
-    font-size: 0.53em;
-    padding-left: 0.55555em;
+.secret-tip {
+    display: block;
+    top: 0;
+    width: 100%;
+}
+
+
+
+#hs-content-3 {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 87.137330754352%; 
+    height: 85.645161290323%;
+    top: 7.177419354838%; 
+}
+#hs-content-3 .slide-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+#hs-content-3 .page1 {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    background: url(../images/photowall_1.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+#hs-content-3 .page2 {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    background: url(../images/photowall_2.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+
+#hs-content-3 .next-page-arrow {
+    top: 39.924670433145%;
+}
+
+#hs-content-3 .prev-page-arrow {
+    top: 39.924670433145%;
 }
 
 /*

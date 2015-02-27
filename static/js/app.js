@@ -60,6 +60,16 @@ var resize = function(){
     resetDog();
     resetHotspot();
     resetHotspotCt();
+
+    var fontRatio = 24/556,
+        fontSize = $(".dump-contract").height() * fontRatio + "px";
+    $(".sisters-count").css({'font-size': fontSize});
+    var offset = $(".site-content").offset();
+    if(offset.right >= 0){
+            $(".site-content").css({ 
+                "left":   "0px" 
+            });
+    } 
 }
 
 var scrollBg = function(pace){
@@ -169,9 +179,9 @@ $(function(){
     /* hotspot 2-2 product development next page and prev page handler */
     $(".next-page-arrow").click(function(e){
         var marginLeft = "-" + $(this).parent().width() + "px";
-        $('.hs2-2-slide-wrapper').animate({marginLeft: marginLeft},600);
+        $('.slide-wrapper').animate({marginLeft: marginLeft},600);
     });
     $(".prev-page-arrow").click(function(e){
-        $('.hs2-2-slide-wrapper').animate({marginLeft: "0"},600);
+        $('.slide-wrapper').animate({marginLeft: "0"},600);
     });
 });

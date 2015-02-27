@@ -78,6 +78,7 @@ a:focus {
     -webkit-animation: pulsatingRed 2s 0s ease-out infinite;
     -moz-animation: pulsatingRed 2s 0s ease-out infinite;
     -webkit-animation: pulsatingRed 2s 0s ease-out infinite;
+    animation: pulsatingRed 2s 0s ease-out infinite;
     border-radius: 50%;
 }
 
@@ -108,6 +109,15 @@ a:focus {
     background: url(../images/trash_bin.png) no-repeat center center;
     background-size: 100% 100%;
 }
+.weidian-message {
+    position: absolute;
+    left: 67.677876106195%;
+    top: 29.142857142857%;
+    width: 1.649235720032%;
+    height: 6.428571428571%;
+    background: url(../images/weidian_text.png) no-repeat center center;
+    background-size: 100% 100%;
+}
 
 .dump-contract {
     position: absolute;
@@ -118,10 +128,10 @@ a:focus {
     background: url(../images/dump_contract.png) no-repeat center center;
     background-size: 100% 100%;
     
-    transform: perspective( 600px ) rotateY( 45deg );
+    transform: perspective( 800px ) rotateY( 12deg );
     -webkit-transform: perspective( 800px ) rotateY( 12deg );
-    -o-transform: perspective( 600px ) rotateY( 45deg );
-    -moz-transform: perspective( 600px ) rotateY( 45deg );
+    -o-transform: perspective( 800px ) rotateY( 12deg );
+    -moz-transform: perspective( 800px ) rotateY( 12deg );
  /*   
     min-height: 392px;
     min-width: 465px;*/
@@ -515,7 +525,7 @@ a:focus {
     position: absolute;
     bottom: 0;
     max-width: 351px;
-    left: 26.6%;
+    left: 16.6%;
     vertical-align: top;
 }
 
@@ -595,6 +605,7 @@ a:focus {
   100% { box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(255, 255, 255, 0);  }
 }
 
+
 @keyframes pulsating {
     0% { box-shadow: 0 0 8px 6px rgba(255, 255, 255, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(255, 255, 255, 0);  }
    10% { box-shadow: 0 0 8px 6px #fff, 0 0 30px 30px transparent, 0 0 12px 14px #fff;  }
@@ -614,6 +625,7 @@ a:focus {
                                                                                                                                            
 @-moz-keyframes pulsatingRed {
     0% { box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(224, 73, 80, 0);  }
+   10% { box-shadow: 0 0 8px 6px #e04950, 0 0 30px 30px transparent, 0 0 12px 14px #e04950;  }
   100% { box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(224, 73, 80, 0);  }
 }
 
@@ -622,6 +634,7 @@ a:focus {
     10% {    box-shadow: 0 0 8px 6px #e04950, 0 0 30px 30px transparent, 0 0 12px 14px #e04950;  }
     100% {    box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(224, 73, 80, 0);  }
 }
+
 
 @keyframes pulsatingRed {
     0% {    box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 0px 0px transparent, 0 0 0px 0px rgba(224, 73, 80, 0);  }
@@ -643,6 +656,7 @@ a:focus {
     from {    box-shadow: 0 0 8px 6px #e04950, 0 0 12px 10px transparent, 0 0 12px 14px #e04950;  }
     to {    box-shadow: 0 0 8px 6px rgba(224, 73, 80, 0), 0 0 4px 40px transparent, 0 0 4px 41px rgba(224, 73, 80, 0);  }
 } 
+
 
 @keyframes pulsatingHover {
     from {    box-shadow: 0 0 8px 6px #e04950, 0 0 12px 10px transparent, 0 0 12px 14px #e04950;  }

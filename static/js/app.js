@@ -181,9 +181,10 @@ $(window).on('mousewheel', function (e) {
 
 var magzineVideo = "<iframe height=100% width=100% src='http://player.youku.com/embed/XODkxMDU5MjAw?isAutoPlay=true' frameborder=0 allowfullscreen></iframe>"
 
-var video2_1_1 = "<iframe height=100% width=100% src='http://player.youku.com/embed/XODgyNzQzOTQ4?isAutoPlay=true' frameborder=0 allowfullscreen></iframe>";
+var video2_1_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODgyNzQzOTQ4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
-var video2_4_1 = "<iframe height=100% width=100% src='http://player.youku.com/embed/XOTAxMTUzOTI0' frameborder=0 allowfullscreen></iframe>";
+
+var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
 $(function(){
     /* reset the background image when document is ready */

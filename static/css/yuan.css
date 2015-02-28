@@ -16,7 +16,7 @@
     top: 13%;
 }
 
-#video1_player{
+.video_player{
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -31,14 +31,7 @@
 	left:31.81% ;
 }
 
-#hs-content-2-3{
-	position: relative;
-	margin: auto;
-	width: 86.17%; /*810px*/
-	height: 85.62% ;/*500px*/
-	top: 12%;
-	font-size: 62.5%;
-}
+
 .video2_title{
 	position: absolute;
 	top: 4%;
@@ -46,7 +39,6 @@
     width: 40%;
     font-size: 1.5em;
     font-weight: 900;
-
     color: #fff;
     -webkit-text-stroke: 1px #B3747A;
     text-align: left;
@@ -128,9 +120,19 @@
 
 
 /*video3 hs-content-2-4*/
-.video3_text{
+.video4_text{
 	position: absolute;
 	width: 48.08%;/*452px*/
-	top: 4%;
+	height: 4.903347477605%;
+	top: 4.930693069307%;
 	left: 25.96%;
+}
+
+
+#hs-content-2-4 {
+    position: relative;
+    margin: auto;
+    width: 86.49%;/*813px*/
+    height: 80%;/*494px-视频播放器进度条*/
+    top: 13%;
 }

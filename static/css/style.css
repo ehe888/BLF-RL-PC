@@ -101,12 +101,43 @@ a:focus {
     z-index: 999;
 }
 
+.progress {
+    position: fixed;
+    display: none;
+    left: 20%;
+    width: 50%;
+    height: 32px;
+    bottom: 6.142857142857%;
+}
+
+.progress .progress-bar {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    top: 14px;
+    height: 4px;
+    background: rgb(240, 169, 165);
+    border-radius: 2px;
+}
+
+.progress .progress-indicator {
+    position: absolute;
+    width: 26px;
+    left: 5%;
+    height: 26px;
+    background: rgb(240, 169, 165);
+    border-style:solid;
+    border-color: white;
+    border-size: 3px;
+    border-radius: 16px;
+}
+
 .trash-bin {
     position: absolute;
     right: 16.291230893001%;
     bottom: 5.428571428571%;
     width: 3.680611423974%;
-    height: 38.714285714286%;
+    height: 37.857143%;
     background: url(../images/trash_bin.png) no-repeat center center;
     background-size: 100% 100%;
 }
@@ -128,21 +159,27 @@ a:focus {
     height: 56%; /* 392/700*/
     background: url(../images/dump_contract.png) no-repeat center center;
     background-size: 100% 100%;
-    
     transform: perspective( 800px ) rotateY( 12deg );
     -webkit-transform: perspective( 800px ) rotateY( 12deg );
     -o-transform: perspective( 800px ) rotateY( 12deg );
     -moz-transform: perspective( 800px ) rotateY( 12deg );
- /*   
-    min-height: 392px;
-    min-width: 465px;*/
+}
+
+.dump-contract .weixin-qr-code {
+    position: absolute;
+    top: 38.651079136691%;
+    left: 55.239327296248%;
+    width: 34.670116429495%;
+    height: 46.460431654676%;
+    background: url(../images/qr_code.png) no-repeat center center;
+    background-size: 100% 100%;
 }
 
 .sisters-count {
     position: absolute;
     width: 18.49935316947%;
     height: 7.553956834532%;
-    top: 25.820143884892%;
+    top: 28.420143884892%;
     left: 19.01681759379%;
     text-align: center;
     vertical-align: middle;
@@ -299,6 +336,20 @@ a:focus {
     width: 100%;
 }
 
+
+#hs-content-2-3 {
+    position: relative;
+    display: none;
+    margin: auto;
+    overflow: hidden;
+    width: 87.234042553191%; 
+    height: 85.616438356164%;
+    top: 12.328767123288%; 
+}
+
+#hs-content-2-3 .left-video-title {
+    
+}
 
 
 #hs-content-3 {
@@ -531,6 +582,19 @@ a:focus {
 }
 
 .page-conent-intro {
+}
+
+.mag-page-3-vplayer {
+    position: absolute;
+    display: block;
+    width: 45.641838351823%;
+    height: 19.043887147335%;
+    right: 5.022187004754%;
+    bottom: 17.692789968652%;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    background: #FFF;
 }
 
 

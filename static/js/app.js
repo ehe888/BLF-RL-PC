@@ -15,8 +15,25 @@ var dh = $(window).height(),
 var resetBg = function(){
     dh = $(window).height(),
        dw = $(window).width(),
-       actualWidth = 4972/bgHeight * (dh >= 700 ? dh : 700);
+       actualWidth = 4972/bgHeight * (dh >= 700 ? dh : 700),
+       offset = $(".site-content").offset();
     $(".site-content").height(dh >= 700 ? dh : 700).width(actualWidth);
+    
+    var gap = -1 * offset.left + dw - actualWidth;
+    if(gap > 0){
+        $(".site-content").css({
+            "left": $(".site-content").offset().left + gap + "px"
+        });
+    }
+    
+    //reset progress bar bg
+    var percentage = Math.abs(offset.left) / ($(".site-content").width() - $(window).width()),
+            pw = $(".progress-bar").width(),
+            
+            leftPos = ((pw * 0.9 - 32)* percentage) + pw * 0.05;
+        $(".progress-indicator").css({
+            "left": leftPos + "px"
+        });
 }
 
 var resetDog = function(){
@@ -84,6 +101,16 @@ var scrollBg = function(pace){
             });
         }
     }
+    
+    if(offset.left < 0){
+        var percentage = Math.abs(offset.left) / ($(".site-content").width() - $(window).width()),
+            pw = $(".progress-bar").width(),
+            
+            leftPos = ((pw * 0.9 - 32)* percentage) + pw * 0.05;
+        $(".progress-indicator").css({
+            "left": leftPos + "px"
+        });
+    }
 }
 
 
@@ -108,7 +135,10 @@ $(window).on('mousewheel', function (e) {
         console.log('start wheeling!');
         //get starting position of offset.left
         var offset = $(".site-content").offset(),
-    leftOffset = offset.left;
+            leftOffset = offset.left;
+        
+        //show progress bar
+        $(".progress").fadeIn(100);
     }
 
     clearTimeout(wheeling);
@@ -122,54 +152,88 @@ $(window).on('mousewheel', function (e) {
         //position the dog
         var offset = $(".site-content").offset(),
              dogPace = leftOffset - offset.left;
-    if(dogPace !== 0){
-        if(Math.abs(offset.left)/actualWidth >= 699/bgWidth){ //dog's leftmost position is 699
-            $(".sitting-dog").show();
-        }else{
-            $(".sitting-dog").hide();   
+        if(dogPace !== 0){
+            if(Math.abs(offset.left)/actualWidth >= 699/bgWidth){ //dog's leftmost position is 699
+                $(".sitting-dog").show();
+            }else{
+                $(".sitting-dog").hide();   
+            }
         }
-    }
+        
+        //hide progress bar
+        $(".progress").fadeOut(800);
     }, 250);
 
     var offset = $(".site-content").offset();
-        if(Math.abs(offset.left)/actualWidth < 699/bgWidth){ //dog's leftmost position is 699
-            $(".sitting-dog").fadeOut();
-        }else{
-            if(!$(".sitting-dog").is(":visible")){
-                $(".sitting-dog").fadeIn();
-            }
+    if(Math.abs(offset.left)/actualWidth < 699/bgWidth){ //dog's leftmost position is 699
+        $(".sitting-dog").fadeOut();
+    }else{
+        if(!$(".sitting-dog").is(":visible")){
+            $(".sitting-dog").fadeIn();
         }
+    }
 
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y += e.deltaFactor * e.deltaY;
-    console.log(wheeldelta);
+    
     scrollBg(e.deltaY * e.deltaFactor);
 });
+
+var magzineVideo = "<iframe height=100% width=100% src='http://player.youku.com/embed/XODkxMDU5MjAw?isAutoPlay=true' frameborder=0 allowfullscreen></iframe>"
+
+var video2_1_1 = "<iframe height=100% width=100% src='http://player.youku.com/embed/XODgyNzQzOTQ4?isAutoPlay=true' frameborder=0 allowfullscreen></iframe>";
+
+var video2_4_1 = "<iframe height=100% width=100% src='http://player.youku.com/embed/XOTAxMTUzOTI0' frameborder=0 allowfullscreen></iframe>";
 
 $(function(){
     /* reset the background image when document is ready */
     resize();
 
     $(".hotspot").click(function(e){
-        var container = "#" +  $(this).attr("id") + "-ct";
-        $(container).fadeIn();
+        var index = $(this).attr("id"),
+            container = "#" + index + "-ct",
+            videotag = "#" +  index + "-player";
+            
+        $(container).fadeIn(function(){
+                if(index == "hotspot-2-1"){
+                //show video1
+                if($(videotag)){
+                    $(videotag).html(video2_1_1);
+                }
+            }else if(index == "hotspot-2-4"){
+                if($(videotag)){
+                    $(videotag).html(video2_4_1);
+                }
+            }
+        });        
     });
 
     $(".hotspot-close").click(function(e){
         $(this).parent().parent().fadeOut();
+        $(this).parent().find(".video_player").each(function(){
+            $(this).html("");
+        })
     });
 
     $(".mag-nav-mask").mouseover(function(){
         var index = $(this).attr("val");
         $(".mag-page-ct.active").removeClass("active").addClass("inactive");
         $("#mag-page-"+index).removeClass("inactive").addClass("active");
+        
+        
+        if(index == 3){
+            //show video
+            $(".mag-page-3-vplayer").html(magzineVideo);
+        }else{
+            $(".mag-page-3-vplayer").html("");
+        }
     });
     /*
     $(".mag-nav-mask").mouseout(function(){
         $(".mag-page-ct.active").removeClass("active").addClass("inactive");
         $("#mag-page-0").removeClass("inactive").addClass("active");
     });*/
-
+    
     /* hotspot 2-2 product development next page and prev page handler */
     $(".next-page-arrow").click(function(e){
         var marginLeft = "-" + $(this).parent().width() + "px";

@@ -179,7 +179,7 @@ $(window).on('mousewheel', function (e) {
     scrollBg(e.deltaY * e.deltaFactor);
 });
 
-var magzineVideo = "<iframe height=100% width=100% src='http://player.youku.com/embed/XODkxMDU5MjAw?isAutoPlay=true' frameborder=0 allowfullscreen></iframe>"
+var magzineVideo = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODkxMDU5MjAw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
 
 var video2_1_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODgyNzQzOTQ4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
@@ -222,11 +222,11 @@ $(function(){
         $("#mag-page-"+index).removeClass("inactive").addClass("active");
         
         
-        if(index == 3){
-            //show video
-            $(".mag-page-3-vplayer").html(magzineVideo);
-        }else{
-            $(".mag-page-3-vplayer").html("");
+        if(index != 3){   //hide video
+            $(".mag-page-3-vplayer-ct").fadeOut(function(){
+                $(this).find(".video_player").html("");
+            });
+            $(".video_player_close").hide();
         }
     });
     /*
@@ -242,5 +242,24 @@ $(function(){
     });
     $(".prev-page-arrow").click(function(e){
         $(this).parents('.slide-wrapper').animate({marginLeft: "0"},600);
+    });
+    
+    //show the video
+    $(".mag-page-3-video-preview").click(function(e){
+        $(".mag-page-3-vplayer-ct").fadeIn(function(){
+            $(this).find(".video_player").html(magzineVideo);
+        });
+    })
+    $(".mag-page-3-vplayer-ct").hover(function(){
+        $(".video_player_close").fadeIn();
+    });
+    
+    
+    $(".video_player_close").click(function(){  
+        $(".video_player_close").fadeOut(function(){
+            $(".mag-page-3-vplayer-ct").fadeOut(function(){
+                $(this).find(".video_player").html("");
+            });
+        });  
     });
 });

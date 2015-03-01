@@ -584,20 +584,45 @@ a:focus {
 .page-conent-intro {
 }
 
-.mag-page-3-vplayer {
+.mag-page-3-video-preview {
     position: absolute;
     display: block;
     width: 45.641838351823%;
     height: 19.043887147335%;
     right: 5.022187004754%;
     bottom: 17.692789968652%;
-    border-color: black;
-    border-style: solid;
-    border-width: 2px;
     background: #FFF;
+    background: url(../images/mag_p3_video_preview.jpg) no-repeat center center;
+    background-size: 100% 100%;
 }
 
+.mag-page-3-video-preview:hover {
+    cursor: pointer;
+}
 
+.mag-page-3-vplayer-ct {
+    position: absolute;
+    display: none;
+    width: 79.978869519282%;
+    height: 33.385579937304%;
+    left: 10.010565240359%;
+    top: 33.307210031348%;
+    background-color: #FFF;
+}
+
+.video_player_close {
+    position: absolute;
+    display: none;
+    width: 15px;
+    height: 15px;
+    right: 10.610565240359%;
+    top: 33.57210031348%;
+    background: url(../images/float_close.png) no-repeat center center;
+}
+
+.video_player_close:hover {
+    cursor: pointer;
+}
 /*
  * header section
  */

@@ -45,13 +45,15 @@ a:focus {
     position: relative;
     width: 0;
     height: 0;
+    min-height: 700px;
+    max-height: 760px;
     overflow: hidden;
 }
 
 .content-background {
     top: 0;
     left: 0;
-    min-height: 700px;
+    width: 100%;
     height: 100%;
     z-index: -999;
 }
@@ -141,7 +143,7 @@ a:focus {
 .trash-bin {
     position: absolute;
     right: 16.291230893001%;
-    bottom: 5.428571428571%;
+    bottom: 94.571428571429%;
     width: 3.680611423974%;
     height: 37.857143%;
     background: url(../images/trash_bin.png) no-repeat center center;

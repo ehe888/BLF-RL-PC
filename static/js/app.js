@@ -6,18 +6,44 @@ var dh = $(window).height(),
     dw = $(window).width(),
     bgWidth = 4972, //Raw picture widht in px
     bgHeight = 700, //Raw picture height in px
-    whRatio = bgWidth / bgHeight,
-    actualWidth = 4972/700 * dh;
+    bgMaxHeight = 760,
+    whRatio = bgWidth / bgHeight;
 
+var getActualSize = function(){
+    var dh = $(window).height();
+    var dw = $(window).width();
+       
+    var targetHeight; //bgHeight is 700
+        
+    if(dh >= bgHeight){
+        if(dh <= bgMaxHeight){
+            targetHeight = dh;
+        }else{
+            targetHeight = bgMaxHeight;
+        }
+    }else{
+        targetHeight = bgHeight;
+    }
+    
+    return {
+        width: 4972/bgHeight * targetHeight,
+        height: targetHeight
+    }
+}
 /*
  *  resize the background image
  */
 var resetBg = function(){
-    dh = $(window).height(),
-       dw = $(window).width(),
-       actualWidth = 4972/bgHeight * (dh >= 700 ? dh : 700),
+    dh = $(window).height();
+    dw = $(window).width();
+       
+    var actualSize = getActualSize();        
+    
+    var actualWidth = actualSize.width,
+        targetHeight = actualSize.height,
        offset = $(".site-content").offset();
-    $(".site-content").height(dh >= 700 ? dh : 700).width(actualWidth);
+    console.log("device height: " + dh + " targetHeight: " + targetHeight + " actualWidth: " + actualWidth);
+    $(".site-content").height(targetHeight).width(actualWidth);
     
     var gap = -1 * offset.left + dw - actualWidth;
     if(gap > 0){
@@ -49,12 +75,15 @@ var resetHotspot = function(){
        "top" : 432/700 * ($(window).height() >= 700 ? $(window).height() : 700)  + "px"
        });
        */
-
+    var actualSize = getActualSize();        
+    
+    var actualWidth = actualSize.width;
+    
     $(".hotspot").each(function(){
         $(this).width(hsw).height(hsh);
         $(this).css({
             "left": $(this).attr("px")/bgWidth * actualWidth + "px",
-            "top" : $(this).attr("py")/bgHeight * ($(window).height() >= bgHeight ? $(window).height() : bgHeight)  + "px"
+            "top" : $(this).attr("py")/bgHeight * actualSize.height  + "px"
         });
     });
 }
@@ -85,6 +114,9 @@ var resize = function(){
 
 var scrollBg = function(pace){
     var offset = $(".site-content").offset();
+    var actualSize = getActualSize();        
+    var actualWidth = actualSize.width;
+    
     if(pace > 0){
         if(offset.left < 0){
             //scroll left
@@ -130,6 +162,10 @@ var wheeldelta = {
 var wheeling, leftOffset;
 
 $(window).on('mousewheel', function (e) {
+    var actualSize = getActualSize();        
+    
+    var actualWidth = actualSize.width;
+        
     e.preventDefault();
     if (!wheeling) {
         console.log('start wheeling!');
@@ -146,6 +182,7 @@ $(window).on('mousewheel', function (e) {
         console.log('stop wheeling!');
         wheeling = undefined;
 
+        
         // reset wheeldelta
         wheeldelta.x = 0;
         wheeldelta.y = 0;

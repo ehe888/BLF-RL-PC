@@ -173,13 +173,18 @@ var wheeldelta = {
     y: 0
 };
 var wheeling, leftOffset;
+var vertical = !0;
 
 $(window).on('mousewheel', function (e) {
     var actualSize = getActualSize();        
     
     var actualWidth = actualSize.width;
+    
         
     e.preventDefault();
+    wheeldelta.x += e.deltaFactor * e.deltaX;
+    wheeldelta.y += e.deltaFactor * e.deltaY;
+    
     if (!wheeling) {
         console.log('start wheeling!');
         //get starting position of offset.left
@@ -188,6 +193,13 @@ $(window).on('mousewheel', function (e) {
         
         //show progress bar
         $(".progress").fadeIn(100);
+        
+         var tan = Math.tan(15 * Math.PI/180);
+         if( Math.abs(e.deltaY) == 0  ){
+             vertical = 0;
+         }else{
+             vertical = !0;
+         }
     }
 
     clearTimeout(wheeling);
@@ -223,17 +235,19 @@ $(window).on('mousewheel', function (e) {
         }
     }
 
-    wheeldelta.x += e.deltaFactor * e.deltaX;
-    wheeldelta.y += e.deltaFactor * e.deltaY;
     
-    console.log("delta x : " +  wheeldelta.x + "delta y : " +  wheeldelta.y);
+    
+    console.log("delta x : " +  e.deltaX + "delta y : " +  e.deltaY);
+    
     
     
     var tan = Math.tan(5 * Math.PI/180);
     
-    if( wheeldelta.x == 0  || Math.abs(wheeldelta.y) / Math.abs(wheeldelta.x) > tan){
+    console.log("vertical L " + vertical);
+    if(vertical){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
+        console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
         scrollBg(e.deltaX * e.deltaFactor);
     }
 });

@@ -176,7 +176,18 @@ $(window).on('mousewheel', function (e) {
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y += e.deltaFactor * e.deltaY;
     
-    scrollBg(e.deltaY * e.deltaFactor);
+    console.log("delta x : " +  wheeldelta.x + "delta y : " +  wheeldelta.y);
+    
+    
+    var tan = Math.tan(5 * Math.PI/180);
+    
+    if( Math.abs(wheeldelta.y) / Math.abs(wheeldelta.x) > tan){
+        scrollBg(e.deltaY * e.deltaFactor);
+    }else{
+        scrollBg(e.deltaX * e.deltaFactor);
+    }
+    
+    
 });
 
 var magzineVideo = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODkxMDU5MjAw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"

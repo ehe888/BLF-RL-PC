@@ -41,13 +41,24 @@ a:focus {
     overflow: hidden;
 }
 
-.site-content {
-    position: relative;
+.extended-bg {
+    position: absolute;
+    top:0;
+    left:0;
     width: 0;
     height: 0;
+    background: url(../images/extended_bg.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
+.site-content {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top:0;
+    left:0;
     min-height: 700px;
     max-height: 760px;
-    overflow: hidden;
+    
 }
 
 .content-background {

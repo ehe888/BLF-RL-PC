@@ -42,12 +42,16 @@ var resetBg = function(){
     var actualWidth = actualSize.width,
         targetHeight = actualSize.height,
        offset = $(".site-content").offset();
-    console.log("device height: " + dh + " targetHeight: " + targetHeight + " actualWidth: " + actualWidth);
+    
     $(".site-content").height(targetHeight).width(actualWidth);
+    $(".extended-bg").height(872 * targetHeight/700).width(actualWidth);
     
     var gap = -1 * offset.left + dw - actualWidth;
     if(gap > 0){
         $(".site-content").css({
+            "left": $(".site-content").offset().left + gap + "px"
+        });
+        $(".extended-bg").css({
             "left": $(".site-content").offset().left + gap + "px"
         });
     }
@@ -123,12 +127,18 @@ var scrollBg = function(pace){
             $(".site-content").css({ 
                 "left":  offset.left + (Math.abs(offset.left) > Math.abs(pace) ? Math.abs(pace) : Math.abs(offset.left))  + "px" 
             });
+            $(".extended-bg").css({ 
+                "left":  offset.left + (Math.abs(offset.left) > Math.abs(pace) ? Math.abs(pace) : Math.abs(offset.left))  + "px" 
+            });
         }
     }else{
         if(offset.left + $(window).width() < actualWidth){
             //scrool right
             var rightOff = actualWidth - (Math.abs(offset.left) + $(window).width());
             $(".site-content").css({ 
+                "left": offset.left -  (Math.abs(rightOff) > Math.abs(pace) ? Math.abs(pace) : Math.abs(rightOff)) + "px" 
+            });
+            $(".extended-bg").css({ 
                 "left": offset.left -  (Math.abs(rightOff) > Math.abs(pace) ? Math.abs(pace) : Math.abs(rightOff)) + "px" 
             });
         }

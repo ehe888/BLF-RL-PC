@@ -44,7 +44,10 @@ var resetBg = function(){
        offset = $(".site-content").offset();
     
     $(".site-content").height(targetHeight).width(actualWidth);
-    $(".extended-bg").height(872 * targetHeight/700).width(actualWidth);
+    
+    //var extendedHeight = 872 * targetHeight/700;
+    
+    $(".extended-bg").height(dh).width(actualWidth);
     
     var gap = -1 * offset.left + dw - actualWidth;
     if(gap > 0){

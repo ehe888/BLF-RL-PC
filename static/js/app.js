@@ -218,14 +218,42 @@ $(window).on('mousewheel', function (e) {
     
     var tan = Math.tan(5 * Math.PI/180);
     
-    if( Math.abs(wheeldelta.y) / Math.abs(wheeldelta.x) > tan){
+    if( wheeldelta.x == 0  || Math.abs(wheeldelta.y) / Math.abs(wheeldelta.x) > tan){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
         scrollBg(e.deltaX * e.deltaFactor);
     }
-    
-    
 });
+
+var rotating, rotateIndex=0;
+
+var rotateMag = function(){
+    clearTimeout(rotating);
+    rotating = setTimeout(rotateMag, 3000);
+    
+    
+    if(++rotateIndex  > 3){
+        rotateIndex = rotateIndex % 4;
+    }
+    
+    
+    $(".mag-page-ct.active").fadeOut(500, function(){
+        $(this).removeClass("active").addClass("inactive");
+        
+        $("#mag-page-"+rotateIndex).fadeIn(500, function(){
+            $(this).removeClass("inactive").addClass("active");
+        });
+    });
+    
+    
+    
+    if(rotateIndex != 3){   //hide video
+        $(".mag-page-3-vplayer-ct").fadeOut(function(){
+            $(this).find(".video_player").html("");
+        });
+    }
+    
+}
 
 var magzineVideo = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODkxMDU5MjAw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
 
@@ -237,14 +265,18 @@ var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/
 $(function(){
     /* reset the background image when document is ready */
     resize();
-
+    
     $(".hotspot").click(function(e){
         var index = $(this).attr("id"),
             container = "#" + index + "-ct",
             videotag = "#" +  index + "-player";
-            
+        
+        
         $(container).fadeIn(function(){
-                if(index == "hotspot-2-1"){
+            if(index === "hotspot-1"){
+                setTimeout(rotateMag, 1000);
+            }
+            if(index == "hotspot-2-1"){
                 //show video1
                 if($(videotag)){
                     $(videotag).html(video2_1_1);
@@ -261,20 +293,29 @@ $(function(){
         $(this).parent().parent().fadeOut();
         $(this).parent().find(".video_player").each(function(){
             $(this).html("");
-        })
+        });
+        $(".mag-page-3-vplayer-ct").fadeOut();
+        
     });
 
     $(".mag-nav-mask").mouseover(function(){
+        clearTimeout(rotating);
         var index = $(this).attr("val");
-        $(".mag-page-ct.active").removeClass("active").addClass("inactive");
-        $("#mag-page-"+index).removeClass("inactive").addClass("active");
         
+        
+        $(".mag-page-ct.active").fadeOut(500, function(){
+            $(this).removeClass("active").addClass("inactive");
+            
+            $("#mag-page-"+index).fadeIn(500, function(){
+                $(this).removeClass("inactive").addClass("active");
+            });
+        });
+
         
         if(index != 3){   //hide video
-            $(".mag-page-3-vplayer-ct").fadeOut(function(){
+            $(".").fadeOut(function(){
                 $(this).find(".video_player").html("");
             });
-            $(".video_player_close").hide();
         }
     });
     /*
@@ -286,17 +327,19 @@ $(function(){
     /* hotspot 2-2 product development next page and prev page handler */
     $(".next-page-arrow").click(function(e){
         var marginLeft = "-" + $(this).parent().width() + "px";
-        $(this).parents('.slide-wrapper').animate({marginLeft: marginLeft},600);
+        $(this).parents('.slide-wrapper').animate({marginLeft: marginLeft}, 600);
     });
     $(".prev-page-arrow").click(function(e){
-        $(this).parents('.slide-wrapper').animate({marginLeft: "0"},600);
+        $(this).parents('.slide-wrapper').animate({marginLeft: "0"}, 600);
     });
     
     //show the video
     $(".mag-page-3-video-preview").click(function(e){
+        clearTimeout(rotating);
         $(".mag-page-3-vplayer-ct").fadeIn(function(){
             $(this).find(".video_player").html(magzineVideo);
         });
+
     })
     $(".mag-page-3-vplayer-ct").hover(function(){
         $(".video_player_close").fadeIn();
@@ -304,10 +347,8 @@ $(function(){
     
     
     $(".video_player_close").click(function(){  
-        $(".video_player_close").fadeOut(function(){
-            $(".mag-page-3-vplayer-ct").fadeOut(function(){
-                $(this).find(".video_player").html("");
-            });
+        $(".mag-page-3-vplayer-ct").fadeOut(function(){
+            $(this).find(".video_player").html("");
         });  
     });
 });

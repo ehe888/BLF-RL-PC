@@ -140,10 +140,31 @@ a:focus {
     border-radius: 16px;
 }
 
+.blanket {
+    position: absolute;
+    left: 26.098544562551%; /*25.858544562551%*/
+    top: 78.142857142857%; 
+    width: 11.520947176685%;
+    height: 30.142857142857%;
+    background: url(../images/blanket.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.bike {
+    position: absolute;
+    left: 89.07884151247%; 
+    top: 51.285714285714%; 
+    width: 10.92115848753%;
+    height: 76.428571428571%;
+    background: url(../images/bike.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+
 .trash-bin {
     position: absolute;
     right: 16.291230893001%;
-    bottom: 94.571428571429%;
+    top: 55.571428571429%;
     width: 3.680611423974%;
     height: 37.857143%;
     background: url(../images/trash_bin.png) no-repeat center center;
@@ -241,14 +262,42 @@ a:focus {
 }
 
 #hs-content-1 {
-    position: relative;
+    position: absolute;
     margin: auto;
     width: 88.222464558342%;
+    left: 5.888767720829%;
     height: 87.258064516129%;
     top: 6.370967741936%;
     background: url(../images/magzine_bg.png) no-repeat center center;
     background-size: 100% 100%;
 }
+
+.mag-page-3-vplayer-ct {
+    position: absolute;
+    display: none;
+    width: 88.222464558342%;
+    left: 5.888767720829%;
+    height: 87.258064516129%;
+    top: 6.370967741936%;
+    margin:auto;
+    background-color: #FFF;
+}
+
+.video_player_close {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 13px;
+    right: 1%;
+    top: 1%;
+    background: url(../images/float_close.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.video_player_close:hover {
+    cursor: pointer;
+}
+
 
 #hs-content-2-2 {
     position: relative;
@@ -613,29 +662,7 @@ a:focus {
     cursor: pointer;
 }
 
-.mag-page-3-vplayer-ct {
-    position: absolute;
-    display: none;
-    width: 79.978869519282%;
-    height: 33.385579937304%;
-    left: 10.010565240359%;
-    top: 33.307210031348%;
-    background-color: #FFF;
-}
 
-.video_player_close {
-    position: absolute;
-    display: none;
-    width: 15px;
-    height: 15px;
-    right: 10.610565240359%;
-    top: 33.57210031348%;
-    background: url(../images/float_close.png) no-repeat center center;
-}
-
-.video_player_close:hover {
-    cursor: pointer;
-}
 /*
  * header section
  */

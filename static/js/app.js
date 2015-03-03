@@ -113,7 +113,9 @@ var resize = function(){
     resetDog();
     resetHotspot();
     resetHotspotCt();
-
+    
+    $('.site').height($(window).height());
+    
     var fontRatio = 24/556,
         fontSize = $(".dump-contract").height() * fontRatio + "px";
     $(".sisters-count").css({'font-size': fontSize});
@@ -179,6 +181,7 @@ var wheeling, leftOffset;
 var vertical = !0;
 
 $(window).on('mousewheel', function (e) {
+
     var actualSize = getActualSize();        
     
     var actualWidth = actualSize.width;

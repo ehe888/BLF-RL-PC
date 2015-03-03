@@ -310,7 +310,7 @@ $(function(){
         
         $(container).fadeIn(function(){
             if(index === "hotspot-1"){
-                setTimeout(rotateMag, 1000);
+                rotating = setTimeout(rotateMag, 3000);
             }
             if(index == "hotspot-2-1"){
                 //show video1
@@ -343,12 +343,13 @@ $(function(){
         clearTimeout(rotating);
         var index = $(this).attr("val");
         
+        $(".mag-page-ct").stop(true, true).hide();
         
         $(".mag-page-ct.active").fadeOut(500, function(){
             $(this).removeClass("active").addClass("inactive");
-            
+            $("#mag-page-"+index).removeClass("inactive").addClass("active");
             $("#mag-page-"+index).fadeIn(500, function(){
-                $(this).removeClass("inactive").addClass("active");
+                
             });
         });
 

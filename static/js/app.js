@@ -417,19 +417,22 @@ $(function(){
     $(".video-2-4-preview").click(function(e){
         var index = $(this).parents("li").index();
         $(".left-video-title1").html($(this).parent().find(".video-2-4-title").html());
-        
         $("#hotspot-2-4-player").html(video2_4[index]);
+        $(".video-2-4-preview").removeClass("active");
+        $(this).addClass("active");
     });
     
     //mouseover 改变视频边框颜色
     $(".video-2-3-preview").mouseover(function(e){        
-        $(".video-2-3-preview").css({
-            "border": "#C66471",
-            "border-style": "solid",
-            "border-size": "1px"
-        });
         $(".video-2-3-preview").each(function(){
-            $(this).find(".play_btn").hide();
+            if(!$(this).hasClass(".active")){
+                $(this).find(".play_btn").hide();
+                $(this).css({
+                    "border": "#C66471",
+                    "border-style": "solid",
+                    "border-size": "1px"
+                });
+            }
         });
         
                 
@@ -454,13 +457,16 @@ $(function(){
     
     //mouseover 改变视频边框颜色
     $(".video-2-4-preview").mouseover(function(e){        
-        $(".video-2-4-preview").css({
-            "border": "#C66471",
-            "border-style": "solid",
-            "border-size": "1px"
-        });
+        
         $(".video-2-4-preview").each(function(){
-            $(this).find(".play_btn").hide();
+            if(!$(this).hasClass(".active")){
+                $(this).find(".play_btn").hide();
+                $(this).css({
+                    "border": "#C66471",
+                    "border-style": "solid",
+                    "border-size": "1px"
+                });
+            }
         });
         
                 
@@ -471,6 +477,8 @@ $(function(){
         });
         $(this).find(".play_btn").show();
     });
+    
+    
     $(".video-2-4-preview").mouseout(function(){
         if($(this).hasClass("active")){
             return;

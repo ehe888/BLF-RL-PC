@@ -1,4 +1,4 @@
-
+ 
 
 /*video1 hs-content-2-1*/
 .video1_text{
@@ -298,6 +298,24 @@
     border-style: solid;
     border-size: 0.5px;
 }
+
+.video-2-4-preview .preview-mask {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+}
+
+.video-2-4-preview:hover {
+    cursor: pointer;
+    border: #FFF;
+    border-style: solid;
+    border-size: 0.5px;
+}
+
 .video-2-4-preview img{
     position: relative;
     margin: auto;
@@ -305,4 +323,18 @@
     height: 100%;
 }
 
+.play_btn{
+    position: absolute;
+    width: 18.55%;
+    top: 29.725%;
+    left:41.725%;
 
+}
+
+.play_btn1{
+    position: absolute;
+    width: 18.55%;
+    top: 29.725%;
+    left:41.725%;
+
+}

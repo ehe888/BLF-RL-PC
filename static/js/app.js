@@ -305,8 +305,8 @@ var video2_3 = [
 
 var video2_4 =[
     "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-]
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
+];
 
 $(function(){
     /* reset the background image when document is ready */
@@ -410,13 +410,80 @@ $(function(){
     $(".video-2-3-preview").click(function(e){
         var index = $(this).parents("li").index();
         $(".left-video-title").html($(this).parent().find(".video-2-3-title").html());
-        
         $("#hotspot-2-3-player").html(video2_3[index]);
+        $(".video-2-3-preview").removeClass("active");
+        $(this).addClass("active");
     });
     $(".video-2-4-preview").click(function(e){
         var index = $(this).parents("li").index();
-        $(".left-video-title").html($(this).parent().find(".video-2-4-title").html());
+        $(".left-video-title1").html($(this).parent().find(".video-2-4-title").html());
         
         $("#hotspot-2-4-player").html(video2_4[index]);
     });
+    
+    //mouseover 改变视频边框颜色
+    $(".video-2-3-preview").mouseover(function(e){        
+        $(".video-2-3-preview").css({
+            "border": "#C66471",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(".video-2-3-preview").each(function(){
+            $(this).find(".play_btn").hide();
+        });
+        
+                
+        $(this).css({
+            "border": "#FFF",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").show();
+    });
+    $(".video-2-3-preview").mouseout(function(){
+        if($(this).hasClass("active")){
+            return;
+        }
+        $(this).css({
+            "border": "#C66471",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").hide();
+    });
+    
+    //mouseover 改变视频边框颜色
+    $(".video-2-4-preview").mouseover(function(e){        
+        $(".video-2-4-preview").css({
+            "border": "#C66471",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(".video-2-4-preview").each(function(){
+            $(this).find(".play_btn").hide();
+        });
+        
+                
+        $(this).css({
+            "border": "#FFF",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").show();
+    });
+    $(".video-2-4-preview").mouseout(function(){
+        if($(this).hasClass("active")){
+            return;
+        }
+        $(this).css({
+            "border": "#C66471",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").hide();
+    });
 });
+
+
+    
+

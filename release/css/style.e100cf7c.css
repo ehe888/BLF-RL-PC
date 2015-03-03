@@ -1,4 +1,4 @@
- @font-face { font-family: DINCode; src: url('dincond-black-opentype.otf'); }
+ @font-face { font-family: DINCode; src: url('dincond-black-opentype.fb811140.otf'); }
 
 /* 
  * Basic Reset
@@ -47,7 +47,7 @@ a:focus {
     left:0;
     width: 0;
     height: 0;
-    background: url(../images/extended_bg.jpg) no-repeat center center;
+    background: url(../images/extended_bg.4ebbb1ac.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 .site-content {
@@ -176,7 +176,7 @@ a:focus {
     top: 78.142857142857%; 
     width: 11.520947176685%;
     height: 30.142857142857%;
-    background: url(../images/blanket.png) no-repeat center center;
+    background: url(../images/blanket.9e9711c2.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -186,7 +186,7 @@ a:focus {
     top: 51.285714285714%; 
     width: 18.925985518906%%;
     height: 76.428571428571%;
-    background: url(../images/bike.png) no-repeat center center;
+    background: url(../images/bike.4eaa0cc2.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -197,7 +197,7 @@ a:focus {
     top: 55.571428571429%;
     width: 3.680611423974%;
     height: 37.857143%;
-    background: url(../images/trash_bin.png) no-repeat center center;
+    background: url(../images/trash_bin.f249e958.png) no-repeat center center;
     background-size: 100% 100%;
 }
 .weidian {
@@ -206,7 +206,7 @@ a:focus {
     top: 21%;
     width: 8.180300500835%;
     height: 30.428571428571%;
-    background: url(../images/weidian.jpg) no-repeat center center;
+    background: url(../images/weidian.251e12f5.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 .weidian-message {
@@ -215,7 +215,7 @@ a:focus {
     top: 29.142857142857%;
     width: 1.649235720032%;
     height: 6.428571428571%;
-    background: url(../images/weidian_text.png) no-repeat center center;
+    background: url(../images/weidian_text.4d9a3a5e.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -225,7 +225,7 @@ a:focus {
     top:    20.857142857143%; /* 146/700*/    
     width:  9.352373290426%; /* 465/4972 */
     height: 56%; /* 392/700*/
-    background: url(../images/dump_contract.png) no-repeat center center;
+    background: url(../images/dump_contract.4ffecd8d.png) no-repeat center center;
     background-size: 100% 100%;
     transform: perspective( 800px ) rotateY( 12deg );
     -webkit-transform: perspective( 800px ) rotateY( 12deg );
@@ -239,7 +239,7 @@ a:focus {
     left: 55.239327296248%;
     width: 34.670116429495%;
     height: 46.460431654676%;
-    background: url(../images/qr_code.png) no-repeat center center;
+    background: url(../images/qr_code.49c33f50.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -262,7 +262,7 @@ a:focus {
 }
 
 .sisters-count li:nth-child(even) div {
-    background: url(../images/qiyue_bg1.png) no-repeart center center;
+    background: url(../images/qiyue_bg1.00ccae8b.png) no-repeart center center;
     background-size: 100% 100%;
     
 }
@@ -307,7 +307,7 @@ a:focus {
     left: 5.888767720829%;
     height: 87.258064516129%;
     top: 6.370967741936%;
-    background: url(../images/magzine_bg.png) no-repeat center center;
+    background: url(../images/magzine_bg.776f5308.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -329,7 +329,7 @@ a:focus {
     height: 13px;
     right: 1%;
     top: 1%;
-    background: url(../images/float_close.png) no-repeat center center;
+    background: url(../images/float_close.bb8f48f3.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -360,7 +360,7 @@ a:focus {
     margin: auto;
     width: 50%;
     height: 100%;
-    background: url(../images/hs2_2_ad_bg.jpg) no-repeat center center;
+    background: url(../images/hs2_2_ad_bg.a0ab7d08.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -370,7 +370,7 @@ a:focus {
     margin: auto;
     width: 50%;
     height: 100%;
-    background: url(../images/hs2_2_ad2_bg.jpg) no-repeat center center;
+    background: url(../images/hs2_2_ad2_bg.7bd525d9.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 #hs-content-2-2 .shining-star {
@@ -568,7 +568,7 @@ a:focus {
     margin: auto;
     width: 50%;
     height: 100%;
-    background: url(../images/photowall_1.jpg) no-repeat center center;
+    background: url(../images/photowall_1.74f788ab.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -578,7 +578,7 @@ a:focus {
     margin: auto;
     width: 50%;
     height: 100%;
-    background: url(../images/photowall_2.jpg) no-repeat center center;
+    background: url(../images/photowall_2.d61b6a56.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -694,29 +694,29 @@ a:focus {
 }
 
 #nav-mask-first {
-    background: url(../images/magzine_first.jpg) no-repeat center center;
+    background: url(../images/magzine_first.bc5e7ad0.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 #nav-mask-first:hover {
-    background: url(../images/magzine_first_active.jpg) no-repeat center center;
+    background: url(../images/magzine_first_active.c5383198.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
 #nav-mask-second {
-    background: url(../images/magzine_second.jpg) no-repeat center center;
+    background: url(../images/magzine_second.e6679759.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 #nav-mask-second:hover {
-    background: url(../images/magzine_second_active.jpg) no-repeat center center;
+    background: url(../images/magzine_second_active.549100d0.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
 #nav-mask-third {
-    background: url(../images/magzine_third.jpg) no-repeat center center;
+    background: url(../images/magzine_third.c2eb4add.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 #nav-mask-third:hover {
-    background: url(../images/magzine_third_active.jpg) no-repeat center center;
+    background: url(../images/magzine_third_active.25e1b022.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -792,7 +792,7 @@ a:focus {
     right: 5.022187004754%;
     bottom: 17.692789968652%;
     background: #FFF;
-    background: url(../images/mag_p3_video_preview.jpg) no-repeat center center;
+    background: url(../images/mag_p3_video_preview.c3d16d07.jpg) no-repeat center center;
     background-size: 100% 100%;
 }
 

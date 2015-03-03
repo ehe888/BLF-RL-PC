@@ -117,6 +117,9 @@ var resize = function(){
     var fontRatio = 24/556,
         fontSize = $(".dump-contract").height() * fontRatio + "px";
     $(".sisters-count").css({'font-size': fontSize});
+    
+    $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
+    $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
 }
 
 var scrollBg = function(pace){
@@ -286,6 +289,11 @@ var magzineVideo = "<iframe height=100% width=100% src='http://static.youku.com/
 
 var video2_1_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODgyNzQzOTQ4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
+var video2_3 = [
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU1NDky&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU2MzI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU3ODI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMDY1ODcy&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"];
 
 var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
@@ -297,6 +305,7 @@ $(function(){
         var index = $(this).attr("id"),
             container = "#" + index + "-ct",
             videotag = "#" +  index + "-player";
+        
         
         
         $(container).fadeIn(function(){
@@ -312,7 +321,12 @@ $(function(){
                 if($(videotag)){
                     $(videotag).html(video2_4_1);
                 }
+            }else if(index == "hotspot-2-3"){
+                $("#hotspot-2-3-player").html(video2_3[0]);
             }
+            
+            $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
+            $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
         });        
     });
 
@@ -377,5 +391,12 @@ $(function(){
         $(".mag-page-3-vplayer-ct").fadeOut(function(){
             $(this).find(".video_player").html("");
         });  
+    });
+    
+    $(".video-2-3-preview").click(function(e){
+        var index = $(this).parents("li").index();
+        $(".left-video-title").html($(this).parent().find(".video-2-3-title").html());
+        
+        $("#hotspot-2-3-player").html(video2_3[index]);
     });
 });

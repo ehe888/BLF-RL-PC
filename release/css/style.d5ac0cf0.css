@@ -165,9 +165,9 @@ a:focus {
     position: absolute;
     left: 89.07884151247%; 
     top: 51.285714285714%; 
-    width: 10.92115848753%;
+    width: 18.925985518906%%;
     height: 76.428571428571%;
-    background: url(../images/bike.f25120c1.png) no-repeat center center;
+    background: url(../images/bike.0d6f9f42.png) no-repeat center center;
     background-size: 100% 100%;
 }
 
@@ -181,9 +181,18 @@ a:focus {
     background: url(../images/trash_bin.f249e958.png) no-repeat center center;
     background-size: 100% 100%;
 }
+.weidian {
+    position: absolute;
+    left: 63.334674175382%;
+    top: 21%;
+    width: 8.180300500835%;
+    height: 30.428571428571%;
+    background: url(../images/weidian.251e12f5.jpg) no-repeat center center;
+    background-size: 100% 100%;
+}
 .weidian-message {
     position: absolute;
-    left: 67.677876106195%;
+    left: 67.598551890587%;
     top: 29.142857142857%;
     width: 1.649235720032%;
     height: 6.428571428571%;
@@ -686,6 +695,7 @@ a:focus {
   
 .mag-page-ct {
     position: absolute;
+    display: none;
     top:0;
     left:0;
     width: 100%;
@@ -693,10 +703,10 @@ a:focus {
 }
 
 .mag-page-ct.active {
-    display: block;
+
 }
 .mag-page-ct.inactive {
-    display: none;
+    
 }
 
 .page-number {

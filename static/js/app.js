@@ -120,6 +120,9 @@ var resize = function(){
     
     $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
     $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
+
+    $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+    $(".left-video-title").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
 }
 
 var scrollBg = function(pace){
@@ -295,7 +298,12 @@ var video2_3 = [
     "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU3ODI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
     "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMDY1ODcy&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"];
 
-var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
+// var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
+
+var video2_4 =[
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
+]
 
 $(function(){
     /* reset the background image when document is ready */
@@ -319,7 +327,7 @@ $(function(){
                 }
             }else if(index == "hotspot-2-4"){
                 if($(videotag)){
-                    $(videotag).html(video2_4_1);
+                    $(videotag).html(video2_4[0]);
                 }
             }else if(index == "hotspot-2-3"){
                 $("#hotspot-2-3-player").html(video2_3[0]);
@@ -327,6 +335,8 @@ $(function(){
             
             $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
             $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
+            $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+            $(".left-video-title").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
         });        
     });
 
@@ -399,5 +409,11 @@ $(function(){
         $(".left-video-title").html($(this).parent().find(".video-2-3-title").html());
         
         $("#hotspot-2-3-player").html(video2_3[index]);
+    });
+    $(".video-2-4-preview").click(function(e){
+        var index = $(this).parents("li").index();
+        $(".left-video-title").html($(this).parent().find(".video-2-4-title").html());
+        
+        $("#hotspot-2-4-player").html(video2_4[index]);
     });
 });

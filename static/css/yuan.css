@@ -182,11 +182,127 @@
 	left: 25.96%;
 }
 
+#video3_title {
+	position: absolute;
+	display: block;
+	top: 0%;
+    left: 0%;
+    height: 6.32%;
+    width: 100%;
+    font-weight: 900;
+    color: #fff;
+    -webkit-text-stroke: 0.5px #B3747A;
+    -moz-text-stroke: 0.5px #B3747A;
+    -o-text-stroke: 0.5px #B3747A;
+    text-stroke: 0.5px #B3747A;
+    text-align: left;
+}
+
+#video3_title span {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width:100%;
+    
+}
 
 #hs-content-2-4 {
     position: relative;
+    display: block;
     margin: auto;
-    width: 86.49%;/*813px*/
-    height: 80%;/*494px-视频播放器进度条*/
-    top: 13%;
+    overflow: hidden;
+    width: 89.36%; 
+    height: 83.075342465753%;
+    top: 8.962328767124%; 
 }
+
+.hs-content-2-4-left {
+    position: relative;
+    display: inline-block;
+    width: 52.088452088452%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.video3_container{
+	position: absolute;
+	display: block;
+	/*margin: auto;*/
+	width: 100%;
+	height: 93.68%;
+	top: 6.32%;
+	left: 0%;
+}
+
+.hs-content-2-4-right {
+    position: relative;
+    display: inline-block;
+    width: 47.911547911548%;
+    height: 100%;
+    top: 0;
+    left:4%;
+}
+
+.hs-content-2-4-video-list {
+    position: absolute;
+    width: 100%;
+    height: 93.686354378819%;
+	top: 6.313645621181%;
+    left: 0;
+}
+
+.hs-content-2-4-video-list li {
+    display: inline-block;
+    width: 80%;
+    height: 30%;
+    margin-bottom:5%; 
+}
+
+.hs-content-2-4-video-list li .video {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    padding-bottom: 10%;
+}
+
+.video-2-4-title {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    width: 40%;
+    height: 19.130434782609%;
+}
+
+.video-2-4-title span {
+    position: absolute;
+    display: block;
+    top: 0;
+    width:100%;   
+    font-weight: 900;
+    color: #fff;
+    -webkit-text-stroke: 0.5px #B3747A;
+    -moz-text-stroke: 0.5px #B3747A;
+    -o-text-stroke: 0.5px #B3747A;
+    text-stroke: 0.5px #B3747A;
+    text-align: left;
+}
+
+.video-2-4-preview {
+    position: relative;
+    left: 0;
+    top: 0%;
+    height: 100%;
+    width: 50%;
+    border: #C66471;
+    border-style: solid;
+    border-size: 0.5px;
+}
+.video-2-4-preview img{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+

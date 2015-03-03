@@ -425,7 +425,7 @@ $(function(){
     //mouseover 改变视频边框颜色
     $(".video-2-3-preview").mouseover(function(e){        
         $(".video-2-3-preview").each(function(){
-            if(!$(this).hasClass(".active")){
+            if(!$(this).hasClass("active")){
                 $(this).find(".play_btn").hide();
                 $(this).css({
                     "border": "#C66471",
@@ -434,8 +434,7 @@ $(function(){
                 });
             }
         });
-        
-                
+                        
         $(this).css({
             "border": "#FFF",
             "border-style": "solid",
@@ -444,6 +443,7 @@ $(function(){
         $(this).find(".play_btn").show();
     });
     $(".video-2-3-preview").mouseout(function(){
+        
         if($(this).hasClass("active")){
             return;
         }
@@ -459,7 +459,7 @@ $(function(){
     $(".video-2-4-preview").mouseover(function(e){        
         
         $(".video-2-4-preview").each(function(){
-            if(!$(this).hasClass(".active")){
+            if(!$(this).hasClass("active")){
                 $(this).find(".play_btn").hide();
                 $(this).css({
                     "border": "#C66471",

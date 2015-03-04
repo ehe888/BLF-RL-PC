@@ -182,23 +182,22 @@ var wheeldelta = {
 };
 var wheeling, leftOffset;
 var vertical = !0;
-
+var startP;
+var endP;
 
 var scroll = function scroll(e) {
     e.preventDefault();
     var actualSize = getActualSize();  
-    var actualWidth = actualSize.width;
-    
+    var actualWidth = actualSize.width;     
     
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y += e.deltaFactor * e.deltaY;
-    
     if (!wheeling) {
         console.log('start wheeling!');
         //get starting position of offset.left
         var offset = $(".site-content").offset(),
             leftOffset = offset.left;
-        
+        startP = Math.abs(offset.left)/actualWidth;
         //show progress bar
         $(".progress").fadeIn(100);
         
@@ -214,7 +213,6 @@ var scroll = function scroll(e) {
     wheeling = setTimeout(function() {
         console.log('stop wheeling!');
         wheeling = undefined;
-
         
         // reset wheeldelta
         wheeldelta.x = 0;
@@ -228,8 +226,22 @@ var scroll = function scroll(e) {
             }else{
                 $(".sitting-dog").hide();   
             }
+        }       
+        endP = Math.abs(offset.left);
+
+        var scrollPage = (actualWidth - endP)/actualWidth;
+
+        if (scrollPage <= 0.8 && startP < 0.2){
+            ga('send','event','rollerlash','rollerlash/part2','click');
+            trackingPage = 1;
+        }else if(scrollPage <= 0.55&&startP <= 0.55){
+            ga('send','event','rollerlash','rollerlash/part3','click');
+            trackingPage = 2;
+        }else if(scrollPage <=0.3&&startP <= 0.8){
+            ga('send','event','rollerlash','rollerlash/part4','click');
+            trackingPage = 3;
         }
-        
+
         //hide progress bar
         $(".progress").fadeOut(800);
     }, 250);

@@ -210,10 +210,10 @@
     position: relative;
     display: block;
     margin: auto;
-    overflow: hidden;
     width: 89.36%; 
     height: 83.075342465753%;
     top: 8.962328767124%; 
+    
 }
 
 .hs-content-2-4-left {
@@ -244,27 +244,66 @@
     left:4%;
 }
 
+
+.vprogress {
+    position: absolute;
+    width: 36px;
+    height: 93.686354378819%;
+	top: 6.313645621181%;
+    right: 3%;
+}
+
+
+.vprogress .vprogress-bar {
+    position: absolute;
+    height: 100%;
+    margin: auto;
+    top: 0;
+    left: 14px;
+    width: 8px;
+    background: rgb(240, 169, 165);
+    border-radius: 4px;
+}
+
+.vprogress .vprogress-indicator {
+    position: absolute;
+    width: 24px;
+    top: 14.2666665%;
+    left: 0;
+    height: 24px;
+    background: #FFF;
+    border: 6px;
+    border-style: solid;
+    border-color: rgb(240, 169, 165);
+    border-radius: 18px;
+}
+
+
+
 .hs-content-2-4-video-list {
     position: absolute;
-    width: 100%;
+    width: 95%;
     height: 93.686354378819%;
 	top: 6.313645621181%;
     left: 0;
-    overflow: scroll;
+    overflow: hidden;
+    vertical-align: top;
 }
 
 .hs-content-2-4-video-list li {
     display: inline-block;
     width: 80%;
-    height: 30%;
-    margin-bottom:5%; 
+    height: 33.33333333333%;
+    overflow: hidden;
+    float: left;
 }
 
 .hs-content-2-4-video-list li .video {
     position: relative;
     width: 90%;
-    height: 100%;
-    padding-bottom: 10%;
+    top: 2px;
+    left:2%;
+    height: 85.897435897436%;
 }
 
 .video-2-4-title {
@@ -272,7 +311,7 @@
     top: 0;
     left: 60%;
     width: 40%;
-    height: 19.130434782609%;
+    height: 28.205128205128%;
 }
 
 .video-2-4-title span {

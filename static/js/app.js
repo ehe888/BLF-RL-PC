@@ -124,7 +124,7 @@ var resize = function(){
     $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
 
     $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
-    $(".left-video-title").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+    $(".left-video-title1 span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
 }
 
 var scrollBg = function(pace){

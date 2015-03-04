@@ -183,7 +183,7 @@ var wheeldelta = {
 var wheeling, leftOffset;
 var vertical = !0;
 
-$(window).on('mousewheel', function (e) {
+var scroll = function scroll(e) {
 
     var actualSize = getActualSize();        
     
@@ -259,7 +259,89 @@ $(window).on('mousewheel', function (e) {
         console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
         scrollBg(e.deltaX * e.deltaFactor);
     }
-});
+};
+
+$(window).on('mousewheel',scroll);
+
+// $(window).on('mousewheel', function (e) {
+
+//     var actualSize = getActualSize();        
+    
+//     var actualWidth = actualSize.width;
+    
+        
+//     e.preventDefault();
+//     wheeldelta.x += e.deltaFactor * e.deltaX;
+//     wheeldelta.y += e.deltaFactor * e.deltaY;
+    
+//     if (!wheeling) {
+//         console.log('start wheeling!');
+//         //get starting position of offset.left
+//         var offset = $(".site-content").offset(),
+//             leftOffset = offset.left;
+        
+//         //show progress bar
+//         $(".progress").fadeIn(100);
+        
+//          var tan = Math.tan(15 * Math.PI/180);
+//          if( Math.abs(e.deltaY) == 0  ){
+//              vertical = 0;
+//          }else{
+//              vertical = !0;
+//          }
+//     }
+
+//     clearTimeout(wheeling);
+//     wheeling = setTimeout(function() {
+//         console.log('stop wheeling!');
+//         wheeling = undefined;
+
+        
+//         // reset wheeldelta
+//         wheeldelta.x = 0;
+//         wheeldelta.y = 0;
+//         //position the dog
+//         var offset = $(".site-content").offset(),
+//              dogPace = leftOffset - offset.left;
+//         if(dogPace !== 0){
+//             if(Math.abs(offset.left)/actualWidth >= 699/bgWidth){ //dog's leftmost position is 699
+//                 $(".sitting-dog").show();
+//             }else{
+//                 $(".sitting-dog").hide();   
+//             }
+//         }
+        
+//         //hide progress bar
+//         $(".progress").fadeOut(800);
+//     }, 250);
+
+//     var offset = $(".site-content").offset();
+//     if(Math.abs(offset.left)/actualWidth < 699/bgWidth){ //dog's leftmost position is 699
+//         $(".sitting-dog").fadeOut();
+//     }else{
+//         if(!$(".sitting-dog").is(":visible")){
+//             $(".sitting-dog").fadeIn();
+//         }
+//     }
+
+    
+    
+//     console.log("delta x : " +  e.deltaX + "delta y : " +  e.deltaY);
+    
+    
+    
+//     var tan = Math.tan(5 * Math.PI/180);
+    
+//     console.log("vertical L " + vertical);
+//     if(vertical){
+//         scrollBg(e.deltaY * e.deltaFactor);
+//     }else{
+//         console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
+//         scrollBg(e.deltaX * e.deltaFactor);
+//     }
+// });
+
+
 
 var rotating, rotateIndex=0;
 
@@ -305,8 +387,21 @@ var video2_3 = [
 
 var video2_4 =[
     "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyMDkzNjk2&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTY5MDIw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
+    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAzMzQ3OTY4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
 ];
+
+var video2_4_title = [
+    "睫毛那些事儿~【九九希makeup】",
+    "纠睫心事——乔琳",
+    "纠睫心事——如何刷好睫毛膏",
+    "菁俏妞_睫毛的秘密",
+    "YUKKIK】纠“睫”心事-新手的睫毛烦恼~"
+];
+// 杂志视频播放
+var magVideoActive = 0;
 
 $(function(){
     /* reset the background image when document is ready */
@@ -317,7 +412,8 @@ $(function(){
             container = "#" + index + "-ct",
             videotag = "#" +  index + "-player";
         
-        
+        $(window).unbind("mousewheel");
+        // $(window).on("mousewheel");
         
         $(container).fadeIn(function(){
             if(index === "hotspot-1"){
@@ -344,12 +440,20 @@ $(function(){
     });
 
     $(".hotspot-close").click(function(e){
-        $(this).parent().parent().fadeOut();
-        $(this).parent().find(".video_player").each(function(){
-            $(this).html("");
-        });
-        $(".mag-page-3-vplayer-ct").fadeOut();
-        
+        console.log(magVideoActive);
+        if(!magVideoActive){
+            $(this).parent().parent().fadeOut();
+            $(this).parent().find(".video_player").each(function(){
+                $(this).html("");
+            });
+            $(".mag-page-3-vplayer-ct").fadeOut();
+            $(window).on('mousewheel',scroll);
+        }else{
+            $(".mag-page-3-vplayer-ct").fadeOut(function(){
+                $(".mag-page-3-vplayer-ct").find(".video_player").html("");
+            }); 
+            magVideoActive = 0;
+        } 
     });
 
     $(".mag-nav-mask").mouseover(function(){
@@ -394,7 +498,7 @@ $(function(){
         $(".mag-page-3-vplayer-ct").fadeIn(function(){
             $(this).find(".video_player").html(magzineVideo);
         });
-
+        magVideoActive = 1;
     })
     $(".mag-page-3-vplayer-ct").hover(function(){
         $(".video_player_close").fadeIn();
@@ -404,7 +508,8 @@ $(function(){
     $(".video_player_close").click(function(){  
         $(".mag-page-3-vplayer-ct").fadeOut(function(){
             $(this).find(".video_player").html("");
-        });  
+        }); 
+        magVideoActive = 0; 
     });
     
     $(".video-2-3-preview").click(function(e){
@@ -413,13 +518,44 @@ $(function(){
         $("#hotspot-2-3-player").html(video2_3[index]);
         $(".video-2-3-preview").removeClass("active");
         $(this).addClass("active");
+        $(".video-2-3-preview").each(function(){
+                console.log("each");
+                $(this).find(".play_btn").hide();
+                $(this).css({
+                    "border": "#C66471",
+                    "border-style": "solid",
+                    "border-size": "1px"
+                });
+        });
+        $(this).css({
+            "border": "#FFF",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").show();
     });
     $(".video-2-4-preview").click(function(e){
         var index = $(this).parents("li").index();
-        $(".left-video-title1").html($(this).parent().find(".video-2-4-title").html());
+        $(".left-video-title1 span").html(video2_4_title[index]);
         $("#hotspot-2-4-player").html(video2_4[index]);
         $(".video-2-4-preview").removeClass("active");
         $(this).addClass("active");
+        $(".video-2-4-preview").each(function(){
+                console.log("each");
+                $(this).find(".play_btn").hide();
+                $(this).css({
+                    "border": "#C66471",
+                    "border-style": "solid",
+                    "border-size": "1px"
+                });
+        });
+        $(this).css({
+            "border": "#FFF",
+            "border-style": "solid",
+            "border-size": "1px"
+        });
+        $(this).find(".play_btn").show();
+
     });
     
     //mouseover 改变视频边框颜色

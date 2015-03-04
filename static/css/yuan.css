@@ -250,6 +250,7 @@
     height: 93.686354378819%;
 	top: 6.313645621181%;
     left: 0;
+    overflow: scroll;
 }
 
 .hs-content-2-4-video-list li {

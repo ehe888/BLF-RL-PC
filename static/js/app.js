@@ -242,16 +242,9 @@ var scroll = function scroll(e) {
             $(".sitting-dog").fadeIn();
         }
     }
-
-    
-    
-    console.log("delta x : " +  e.deltaX + "delta y : " +  e.deltaY);
-    
-    
     
     var tan = Math.tan(5 * Math.PI/180);
     
-    console.log("vertical L " + vertical);
     if(vertical){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
@@ -263,27 +256,25 @@ var scroll = function scroll(e) {
 $(window).on('mousewheel',scroll);
 
 var videoIndicator = 0;
+var indicatorTop = 0;
+
 
 var scrollVideo = function scroll(e) {
     e.preventDefault();
-    var actualSize = getActualSize();  
-    var actualWidth = actualSize.width;
-    
-        
+            
     wheeldelta.x += e.deltaFactor * e.deltaX;
-    wheeldelta.y += e.deltaFactor * e.deltaY;
+    wheeldelta.y +=  e.deltaY * e.deltaFactor;
+    var height = $(".vprogress").height();
+    var vproressTop = $(".vprogress").position().top;
+    var listHeight = height;
     
     if (!wheeling) {
         console.log('start wheeling!');
-        
-    }
-
-    clearTimeout(wheeling);
-    wheeling = setTimeout(function() {
-        console.log('stop wheeling!');
-        wheeling = undefined;
-        
-        var height = $(".hs-content-2-4-video-list").height(),
+        indicatorTop = $(".vprogress-indicator").position().top;
+                
+        console.log("indicatorTop :  " + indicatorTop + "  height: " + height);
+        /*
+var height = $(".hs-content-2-4-video-list").height(),
             point = [ height * 0.142666665, height * 0.47266665, height * 0.80266665];
         
         if(wheeldelta.y < 0){
@@ -315,21 +306,56 @@ var scrollVideo = function scroll(e) {
             });
             $(".vprogress-indicator").css({"top": point[ videoIndicator % 3] + "px" });
         }
+*/
+    }
+    
+    
+    clearTimeout(wheeling);
+    wheeling = setTimeout(function() {
+        console.log('stop wheeling!');
+        wheeling = undefined;
+        
         // reset wheeldelta
         wheeldelta.x = 0;
         wheeldelta.y = 0;
+        indicatorTop = 0;
+        listTop = 0;
+    }, 150);
+    
+    
+    var outerOffset = $(".hs-content-2-4-right").offset();
+    var top = indicatorTop -  wheeldelta.y;
+    
+    
+    console.log( "top : " +  top + " vproressTop: " + vproressTop);
+    if(top >= height - 48){
+        top = height - 48;    
+    }
+    if(top <= 30){
+        top = 30;
+    }
         
-    }, 250);
+    
+    $(".vprogress-indicator").css({ "top": top + "px" });
+    var outerTop =   (-1 * (top - 30) / (height - 96) * listHeight);
+    $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
+    
+    /*
 
-    var offset = $(".site-content").offset();
-    if(Math.abs(offset.left)/actualWidth < 699/bgWidth){ //dog's leftmost position is 699
-        $(".sitting-dog").fadeOut();
+    if(e.deltaY < 0){
+        
+        
+        $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
     }else{
-        if(!$(".sitting-dog").is(":visible")){
-            $(".sitting-dog").fadeIn();
+        var top = indicatorTop - step;
+        var outerTop = listTop + step;
+        console.log("upupuppupupup deltaY : " +  top + "step y : " +  outerTop);
+        if(top > height * 0.05){            
+            console.log( "top : " +  top);
+            $(".vprogress-indicator").css({"top": top + "px" });
         }
     }
-    
+*/
 };
 
 // $(window).on('mousewheel', function (e) {
@@ -506,7 +532,7 @@ $(function(){
             $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
             $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
             $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
-            $(".left-video-title1").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+            $(".left-video-title1 span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
         });        
     });
 

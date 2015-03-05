@@ -7,7 +7,12 @@ var dh = $(window).height(),
     bgWidth = 4972, //Raw picture widht in px
     bgHeight = 700, //Raw picture height in px
     bgMaxHeight = 760,
-    whRatio = bgWidth / bgHeight;
+    whRatio = bgWidth / bgHeight,
+    seed = 217,
+    startTimePoint = new Date(1425559134766),
+    currentCount = ("00000" + Math.round(seed + Math.abs(Date.now() - startTimePoint)/(60*60*1000) * 20).toString()).slice(-5);
+
+    console.log(currentCount);
 
 var getActualSize = function(){
     var dh = $(window).height();
@@ -471,6 +476,13 @@ $(function(){
     /* reset the background image when document is ready */
     resize();
     
+    /* setup the counter */
+    $(".sisters-count li").each(function(){
+        
+        $(this).find("p").html(currentCount.charAt($(this).index()));
+    });
+
+
     $(".hotspot").click(function(e){
         var index = $(this).attr("id"),
             container = "#" + index + "-ct",

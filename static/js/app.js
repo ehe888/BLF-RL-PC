@@ -188,12 +188,10 @@ var endP;
 var scroll = function scroll(e) {
     e.preventDefault();
     var actualSize = getActualSize();  
-    var actualWidth = actualSize.width;
-    
+    var actualWidth = actualSize.width;     
     
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y += e.deltaFactor * e.deltaY;
-    
     if (!wheeling) {
         console.log('start wheeling!');
         
@@ -204,7 +202,7 @@ var scroll = function scroll(e) {
             leftOffset = offset.left;
         
         startP = Math.abs(offset.left)/actualWidth;
-        
+
         //show progress bar
         $(".progress").fadeIn(100);
         
@@ -220,7 +218,6 @@ var scroll = function scroll(e) {
     wheeling = setTimeout(function() {
         console.log('stop wheeling!');
         wheeling = undefined;
-
         
         // reset wheeldelta
         wheeldelta.x = 0;
@@ -236,7 +233,9 @@ var scroll = function scroll(e) {
             }else{
                 $(".sitting-dog").hide();   
             }
-        }
+        }       
+        
+
         endP = Math.abs(offset.left);
         
         var scrollPage = (actualWidth - endP)/actualWidth;
@@ -438,24 +437,24 @@ var rotateMag = function(){
     
 }
 
-var magzineVideo = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODkxMDU5MjAw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
+var magzineVideo = "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODkxMDU5MjAw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>"
 
-var video2_1_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODgyNzQzOTQ4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
+var video2_1_1 = "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XODgyNzQzOTQ4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>";
 
 var video2_3 = [
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU1NDky&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU2MzI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU3ODI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>", 
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMDY1ODcy&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"];
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU1NDky&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>", 
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU2MzI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>", 
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTU3ODI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>", 
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMDY1ODcy&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>"];
 
 // var video2_4_1 = "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>";
 
 var video2_4 =[
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyMDkzNjk2&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTY5MDIw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>",
-    "<iframe height=100% width=100% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAzMzQ3OTY4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></iframe>"
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxMTUzOTI0&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>",
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAxODA4OTI4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>",
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyMDkzNjk2&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>",
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAyOTY5MDIw&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>",
+    "<embed height=102% width=101% src='http://static.youku.com/v/swf/qplayer.swf?VideoIDS=XOTAzMzQ3OTY4&isAutoPlay=true&isShowRelatedVideo=false&embedid=-&showAd=0' frameborder=0 allowfullscreen></embed>"
 ];
 
 var video2_4_title = [
@@ -532,7 +531,16 @@ $(function(){
                 $(".mag-page-3-vplayer-ct").find(".video_player").html("");
             }); 
             magVideoActive = 0;
-        } 
+        }
+        rotateIndex = 0; 
+        clearTimeout(rotating);
+        $(".mag-page-ct.active").fadeOut(function(){
+            $(this).removeClass("active").addClass("inactive");
+        
+            $("#mag-page-"+rotateIndex).fadeIn(function(){
+                $(this).removeClass("inactive").addClass("active");
+            });
+        });
     });
 
     $(".mag-nav-mask").mouseover(function(){

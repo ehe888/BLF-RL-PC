@@ -123,8 +123,8 @@ var resize = function(){
     $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
     $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
 
-    $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
-    $(".left-video-title").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+    $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2.5) + "px" });
+    $(".left-video-title1 span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
 }
 
 var scrollBg = function(pace){
@@ -194,10 +194,15 @@ var scroll = function scroll(e) {
     wheeldelta.y += e.deltaFactor * e.deltaY;
     if (!wheeling) {
         console.log('start wheeling!');
+        
+        
+        
         //get starting position of offset.left
         var offset = $(".site-content").offset(),
             leftOffset = offset.left;
+        
         startP = Math.abs(offset.left)/actualWidth;
+
         //show progress bar
         $(".progress").fadeIn(100);
         
@@ -217,6 +222,8 @@ var scroll = function scroll(e) {
         // reset wheeldelta
         wheeldelta.x = 0;
         wheeldelta.y = 0;
+        
+        
         //position the dog
         var offset = $(".site-content").offset(),
              dogPace = leftOffset - offset.left;
@@ -227,21 +234,23 @@ var scroll = function scroll(e) {
                 $(".sitting-dog").hide();   
             }
         }       
-        endP = Math.abs(offset.left);
+        
 
+        endP = Math.abs(offset.left);
+        
         var scrollPage = (actualWidth - endP)/actualWidth;
 
         if (scrollPage <= 0.8 && startP < 0.2){
             ga('send','event','rollerlash','rollerlash/part2','click');
-            trackingPage = 1;
+            
         }else if(scrollPage <= 0.55&&startP <= 0.55){
             ga('send','event','rollerlash','rollerlash/part3','click');
-            trackingPage = 2;
+           
         }else if(scrollPage <=0.3&&startP <= 0.8){
             ga('send','event','rollerlash','rollerlash/part4','click');
-            trackingPage = 3;
+           
         }
-
+        
         //hide progress bar
         $(".progress").fadeOut(800);
     }, 250);
@@ -254,16 +263,9 @@ var scroll = function scroll(e) {
             $(".sitting-dog").fadeIn();
         }
     }
-
-    
-    
-    console.log("delta x : " +  e.deltaX + "delta y : " +  e.deltaY);
-    
-    
     
     var tan = Math.tan(5 * Math.PI/180);
     
-    console.log("vertical L " + vertical);
     if(vertical){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
@@ -275,73 +277,54 @@ var scroll = function scroll(e) {
 $(window).on('mousewheel',scroll);
 
 var videoIndicator = 0;
+var indicatorTop = 0;
+
 
 var scrollVideo = function scroll(e) {
     e.preventDefault();
-    var actualSize = getActualSize();  
-    var actualWidth = actualSize.width;
-    
-        
+            
     wheeldelta.x += e.deltaFactor * e.deltaX;
-    wheeldelta.y += e.deltaFactor * e.deltaY;
+    wheeldelta.y +=  e.deltaY * e.deltaFactor;
+    var height = $(".vprogress").height();
+    var indiCtHeight = $(".vprogress-indicator-ct").height();
+    var vproressTop = $(".vprogress").position().top;
+    var listHeight = height;
     
     if (!wheeling) {
         console.log('start wheeling!');
-        
+        indicatorTop = $(".vprogress-indicator").position().top;
     }
-
+    
+    
     clearTimeout(wheeling);
     wheeling = setTimeout(function() {
         console.log('stop wheeling!');
         wheeling = undefined;
         
-        var height = $(".hs-content-2-4-video-list").height(),
-            point = [ height * 0.142666665, height * 0.47266665, height * 0.80266665];
-        
-        if(wheeldelta.y < 0){
-            if(videoIndicator >= 2){
-                return;
-            }
-            
-            $(".hs-content-2-4-video-list li").each(function(e){
-                if($(this).index() <= videoIndicator) {
-                    //$(this).css({ "height": "0px" });
-                    $(this).hide();
-                } 
-                
-            });
-            videoIndicator = (videoIndicator+1) % 5;
-            $(".vprogress-indicator").css({"top": point[ videoIndicator % 3] + "px" });
-        }else{
-            if(videoIndicator == 0){
-                return;
-            }
-            videoIndicator = videoIndicator > 0 ? videoIndicator-1 : 0;
-            
-            $(".hs-content-2-4-video-list li").each(function(e){
-                console.log("$(this).index(): " + $(this).index()  + "indicator : " + videoIndicator);
-                if($(this).index() >= videoIndicator) {
-                    $(this).show();
-                } 
-                
-            });
-            $(".vprogress-indicator").css({"top": point[ videoIndicator % 3] + "px" });
-        }
         // reset wheeldelta
         wheeldelta.x = 0;
         wheeldelta.y = 0;
-        
+        indicatorTop = 0;
+        listTop = 0;
     }, 250);
-
-    var offset = $(".site-content").offset();
-    if(Math.abs(offset.left)/actualWidth < 699/bgWidth){ //dog's leftmost position is 699
-        $(".sitting-dog").fadeOut();
-    }else{
-        if(!$(".sitting-dog").is(":visible")){
-            $(".sitting-dog").fadeIn();
-        }
-    }
     
+    
+    var outerOffset = $(".hs-content-2-4-right").offset();
+    var top = indicatorTop -  wheeldelta.y;
+    
+    
+    console.log( "top : " +  top + " vproressTop: " + vproressTop);
+    if(top >= indiCtHeight - 36){
+        top = indiCtHeight - 36; 
+    }
+    if(top <= 0){
+        top = 0;
+    }
+        
+    
+    $(".vprogress-indicator").css({ "top": top + "px" });
+    var outerTop =   (-1 * top / (indiCtHeight - 36) * listHeight);
+    $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
 };
 
 // $(window).on('mousewheel', function (e) {
@@ -525,8 +508,8 @@ $(function(){
             
             $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
             $(".left-video-title").css({ 'font-size': Math.round($(".video-2-3-title").height()/3 * 1.2) + "px" });
-            $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
-            $(".left-video-title1").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
+            $(".video-2-4-title span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2.5) + "px" });
+            $(".left-video-title1 span").css({ 'font-size': Math.round($(".video-2-4-title").height()/2) + "px" });
         });        
     });
 
@@ -732,15 +715,28 @@ $(function(){
         });
         $(this).find(".play_btn").hide();
     });
-});
-
-
-
-//tracking code
+    
     $(".sitting-dog").click(function(){
         ga('send','event','rollerlash','rollerlash/toec','click');
-    })
+    });
+    
+    $(".vprogress-indicator").udraggable({
+        containment: 'parent',
+        drag: function(e, ui){
+            var pos = ui.position;
+            var height = $(".vprogress").height();
+            var indiCtHeight = $(".vprogress-indicator-ct").height();
+            
+            console.log("height: " + height + " indiCtHeight: " + indiCtHeight);
+            var outerTop =   (-1 * pos.top / (indiCtHeight - 36) * height);
+            $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
 
+        }
+    });
+    
+    
+    
+});
 
 
 

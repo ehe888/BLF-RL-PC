@@ -242,6 +242,7 @@
     height: 100%;
     top: 0;
     left:4%;
+    overflow: hidden;
 }
 
 
@@ -265,10 +266,18 @@
     border-radius: 4px;
 }
 
+.vprogress .vprogress-indicator-ct {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    left: 0;
+    height: 90%;
+}
+
 .vprogress .vprogress-indicator {
     position: absolute;
     width: 24px;
-    top: 14.2666665%;
+    top: 5%;
     left: 0;
     height: 24px;
     background: #FFF;
@@ -278,22 +287,34 @@
     border-radius: 18px;
 }
 
+.vprogress .vprogress-indicator:hover {
+    cursor: pointer;
+}
 
 
-.hs-content-2-4-video-list {
+.hs-content-2-4-video-list-wrapper {
     position: absolute;
     width: 95%;
-    height: 93.686354378819%;
+    height: 156.1439239647%;
 	top: 6.313645621181%;
     left: 0;
     overflow: hidden;
     vertical-align: top;
 }
 
+.hs-content-2-4-video-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
 .hs-content-2-4-video-list li {
     display: inline-block;
     width: 80%;
-    height: 33.33333333333%;
+    height: 20%;
     overflow: hidden;
     float: left;
 }
@@ -310,7 +331,7 @@
     position: absolute;
     top: 0;
     left: 60%;
-    width: 40%;
+    width: 50%;
     height: 28.205128205128%;
 }
 

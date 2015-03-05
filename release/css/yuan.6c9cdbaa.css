@@ -11,8 +11,8 @@
 #hs-content-2-1{
     position: relative;
     margin: auto;
-    width: 86.49%;/*813px*/
-    height: 80%;/*494px-视频播放器进度条*/
+    width: 85.633%;/*813px*/
+    height: 78.431%;/*494px-视频播放器进度条*/
     top: 13%;
 }
 
@@ -210,10 +210,10 @@
     position: relative;
     display: block;
     margin: auto;
-    overflow: hidden;
     width: 89.36%; 
     height: 83.075342465753%;
     top: 8.962328767124%; 
+    
 }
 
 .hs-content-2-4-left {
@@ -242,37 +242,97 @@
     height: 100%;
     top: 0;
     left:4%;
+    overflow: hidden;
+}
+
+
+.vprogress {
+    position: absolute;
+    width: 36px;
+    height: 93.686354378819%;
+	top: 6.313645621181%;
+    right: 3%;
+}
+
+
+.vprogress .vprogress-bar {
+    position: absolute;
+    height: 100%;
+    margin: auto;
+    top: 0;
+    left: 14px;
+    width: 8px;
+    background: rgb(240, 169, 165);
+    border-radius: 4px;
+}
+
+.vprogress .vprogress-indicator-ct {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    left: 0;
+    height: 90%;
+}
+
+.vprogress .vprogress-indicator {
+    position: absolute;
+    width: 24px;
+    top: 5%;
+    left: 0;
+    height: 24px;
+    background: #FFF;
+    border: 6px;
+    border-style: solid;
+    border-color: rgb(240, 169, 165);
+    border-radius: 18px;
+}
+
+.vprogress .vprogress-indicator:hover {
+    cursor: pointer;
+}
+
+
+.hs-content-2-4-video-list-wrapper {
+    position: absolute;
+    width: 95%;
+    height: 156.1439239647%;
+	top: 6.313645621181%;
+    left: 0;
+    overflow: hidden;
+    vertical-align: top;
 }
 
 .hs-content-2-4-video-list {
     position: absolute;
-    width: 100%;
-    height: 93.686354378819%;
-	top: 6.313645621181%;
     left: 0;
-    overflow: scroll;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
 }
 
 .hs-content-2-4-video-list li {
     display: inline-block;
     width: 80%;
-    height: 30%;
-    margin-bottom:5%; 
+    height: 20%;
+    overflow: hidden;
+    float: left;
 }
 
 .hs-content-2-4-video-list li .video {
     position: relative;
     width: 90%;
-    height: 100%;
-    padding-bottom: 10%;
+    top: 2px;
+    left:2%;
+    height: 85.897435897436%;
 }
 
 .video-2-4-title {
     position: absolute;
     top: 0;
     left: 60%;
-    width: 40%;
-    height: 19.130434782609%;
+    width: 50%;
+    height: 28.205128205128%;
 }
 
 .video-2-4-title span {

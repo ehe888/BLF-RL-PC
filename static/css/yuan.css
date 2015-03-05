@@ -266,6 +266,14 @@
     border-radius: 4px;
 }
 
+.vprogress .vprogress-indicator-ct {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    left: 0;
+    height: 90%;
+}
+
 .vprogress .vprogress-indicator {
     position: absolute;
     width: 24px;

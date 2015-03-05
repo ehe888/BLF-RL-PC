@@ -182,7 +182,8 @@ var wheeldelta = {
 };
 var wheeling, leftOffset;
 var vertical = !0;
-
+var startP;
+var endP;
 
 var scroll = function scroll(e) {
     e.preventDefault();
@@ -195,9 +196,14 @@ var scroll = function scroll(e) {
     
     if (!wheeling) {
         console.log('start wheeling!');
+        
+        
+        
         //get starting position of offset.left
         var offset = $(".site-content").offset(),
             leftOffset = offset.left;
+        
+        startP = Math.abs(offset.left)/actualWidth;
         
         //show progress bar
         $(".progress").fadeIn(100);
@@ -219,6 +225,8 @@ var scroll = function scroll(e) {
         // reset wheeldelta
         wheeldelta.x = 0;
         wheeldelta.y = 0;
+        
+        
         //position the dog
         var offset = $(".site-content").offset(),
              dogPace = leftOffset - offset.left;
@@ -228,6 +236,20 @@ var scroll = function scroll(e) {
             }else{
                 $(".sitting-dog").hide();   
             }
+        }
+        endP = Math.abs(offset.left);
+        
+        var scrollPage = (actualWidth - endP)/actualWidth;
+
+        if (scrollPage <= 0.8 && startP < 0.2){
+            ga('send','event','rollerlash','rollerlash/part2','click');
+            
+        }else if(scrollPage <= 0.55&&startP <= 0.55){
+            ga('send','event','rollerlash','rollerlash/part3','click');
+           
+        }else if(scrollPage <=0.3&&startP <= 0.8){
+            ga('send','event','rollerlash','rollerlash/part4','click');
+           
         }
         
         //hide progress bar
@@ -265,48 +287,13 @@ var scrollVideo = function scroll(e) {
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y +=  e.deltaY * e.deltaFactor;
     var height = $(".vprogress").height();
+    var indiCtHeight = $(".vprogress-indicator-ct").height();
     var vproressTop = $(".vprogress").position().top;
     var listHeight = height;
     
     if (!wheeling) {
         console.log('start wheeling!');
         indicatorTop = $(".vprogress-indicator").position().top;
-                
-        console.log("indicatorTop :  " + indicatorTop + "  height: " + height);
-        /*
-var height = $(".hs-content-2-4-video-list").height(),
-            point = [ height * 0.142666665, height * 0.47266665, height * 0.80266665];
-        
-        if(wheeldelta.y < 0){
-            if(videoIndicator >= 2){
-                return;
-            }
-            
-            $(".hs-content-2-4-video-list li").each(function(e){
-                if($(this).index() <= videoIndicator) {
-                    //$(this).css({ "height": "0px" });
-                    $(this).hide();
-                } 
-                
-            });
-            videoIndicator = (videoIndicator+1) % 5;
-            $(".vprogress-indicator").css({"top": point[ videoIndicator % 3] + "px" });
-        }else{
-            if(videoIndicator == 0){
-                return;
-            }
-            videoIndicator = videoIndicator > 0 ? videoIndicator-1 : 0;
-            
-            $(".hs-content-2-4-video-list li").each(function(e){
-                console.log("$(this).index(): " + $(this).index()  + "indicator : " + videoIndicator);
-                if($(this).index() >= videoIndicator) {
-                    $(this).show();
-                } 
-                
-            });
-            $(".vprogress-indicator").css({"top": point[ videoIndicator % 3] + "px" });
-        }
-*/
     }
     
     
@@ -320,7 +307,7 @@ var height = $(".hs-content-2-4-video-list").height(),
         wheeldelta.y = 0;
         indicatorTop = 0;
         listTop = 0;
-    }, 150);
+    }, 250);
     
     
     var outerOffset = $(".hs-content-2-4-right").offset();
@@ -328,34 +315,17 @@ var height = $(".hs-content-2-4-video-list").height(),
     
     
     console.log( "top : " +  top + " vproressTop: " + vproressTop);
-    if(top >= height - 48){
-        top = height - 48;    
+    if(top >= indiCtHeight - 36){
+        top = indiCtHeight - 36; 
     }
-    if(top <= 30){
-        top = 30;
+    if(top <= 0){
+        top = 0;
     }
         
     
     $(".vprogress-indicator").css({ "top": top + "px" });
-    var outerTop =   (-1 * (top - 30) / (height - 96) * listHeight);
+    var outerTop =   (-1 * top / (indiCtHeight - 36) * listHeight);
     $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
-    
-    /*
-
-    if(e.deltaY < 0){
-        
-        
-        $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
-    }else{
-        var top = indicatorTop - step;
-        var outerTop = listTop + step;
-        console.log("upupuppupupup deltaY : " +  top + "step y : " +  outerTop);
-        if(top > height * 0.05){            
-            console.log( "top : " +  top);
-            $(".vprogress-indicator").css({"top": top + "px" });
-        }
-    }
-*/
 };
 
 // $(window).on('mousewheel', function (e) {
@@ -737,15 +707,28 @@ $(function(){
         });
         $(this).find(".play_btn").hide();
     });
-});
-
-
-
-//tracking code
+    
     $(".sitting-dog").click(function(){
         ga('send','event','rollerlash','rollerlash/toec','click');
-    })
+    });
+    
+    $(".vprogress-indicator").udraggable({
+        containment: 'parent',
+        drag: function(e, ui){
+            var pos = ui.position;
+            var height = $(".vprogress").height();
+            var indiCtHeight = $(".vprogress-indicator-ct").height();
+            
+            console.log("height: " + height + " indiCtHeight: " + indiCtHeight);
+            var outerTop =   (-1 * pos.top / (indiCtHeight - 36) * height);
+            $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
 
+        }
+    });
+    
+    
+    
+});
 
 
 

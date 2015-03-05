@@ -287,6 +287,9 @@
     border-radius: 18px;
 }
 
+.vprogress .vprogress-indicator:hover {
+    cursor: pointer;
+}
 
 
 .hs-content-2-4-video-list-wrapper {

@@ -247,13 +247,17 @@ var scroll = function scroll(e) {
 
         if (scrollPage <= 0.8 && startP < 0.2){
             ga('send','event','rollerlash','rollerlash/part2','click');
+            trackingPage('part2');
             
-        }else if(scrollPage <= 0.55&&startP <= 0.55){
+        }
+        if(scrollPage <= 0.55&&startP <= 0.55){
             ga('send','event','rollerlash','rollerlash/part3','click');
+            trackingPage('part3');
            
-        }else if(scrollPage <=0.3&&startP <= 0.8){
+        }
+        if(scrollPage <=0.3&&startP <= 0.8){
             ga('send','event','rollerlash','rollerlash/part4','click');
-           
+            trackingPage('part4');
         }
         
         //hide progress bar
@@ -274,7 +278,7 @@ var scroll = function scroll(e) {
     if(vertical){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
-        console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
+        // console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
         scrollBg(e.deltaX * e.deltaFactor);
     }
 };
@@ -496,26 +500,32 @@ $(function(){
         $(container).fadeIn(function(){
             if(index === "hotspot-1"){
                 ga('send','event','rollerlash','rollerlash/star_magzine','click');
+                trackingEvent('prop1','None','star_magzine','star_magzine');
                 rotating = setTimeout(rotateMag, 3000);
             }
             if(index == "hotspot-2-1"){
                 ga('send','event','rollerlash','rollerlash/star_inspiration_video','click');
+                trackingEvent('prop1','None','star_inspiration_video','star_inspiration_video');
                 //show video1
                 if($(videotag)){
                     $(videotag).html(video2_1_1);
                 }
             }else if(index=="hotspot-2-2"){
-                    ga('send','event','rollerlash','rollerlash/star_product_story','click'); 
+                    ga('send','event','rollerlash','rollerlash/star_product_story','click');
+                    trackingEvent('prop1','None','star_product_story','star_product_story'); 
             }else if(index == "hotspot-2-4"){
                 ga('send','event','rollerlash','rollerlash/star_kol','click');
+                trackingEvent('prop1','None','star_kol','star_kol');
                 if($(videotag)){
                     $(videotag).html(video2_4[0]);
                 }
             }else if(index == "hotspot-2-3"){
                 ga('send','event','rollerlash','rollerlash/star_4video','click');
+                trackingEvent('prop1','None','star_4video','star_4video');
                 $("#hotspot-2-3-player").html(video2_3[0]);
             }else if(index == "hotspot-3"){
                 ga('send','event','rollerlash','rollerlash/star_offline','click');
+                trackingEvent('prop1','None','star_offline','star_offline');
             }
             
             $(".video-2-3-title span").css({ 'font-size': Math.round($(".video-2-3-title").height()/3) + "px" });
@@ -750,7 +760,20 @@ $(function(){
     
 });
 
+//omniture tracking
+function trackingPage(pageName){
+  s.pageName = pageName;
+  s.t();
+}
 
+function trackingEvent(vars,events,prop,star)
+{
+  var s =s_gi('benefitcosusdev');
+  s.linkTrackVars = vars; 
+  s.linkTrackEvents = events;
+  s.prop1 = prop;
+  s.tl(this, 'o',star); 
+}
 
     
 

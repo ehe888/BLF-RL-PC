@@ -12,7 +12,7 @@ var dh = $(window).height(),
     startTimePoint = new Date(1425559134766),
     currentCount = ("00000" + Math.round(seed + Math.abs(Date.now() - startTimePoint)/(60*60*1000) * 20).toString()).slice(-5);
 
-    console.log(currentCount);
+    
 
 var getActualSize = function(){
     var dh = $(window).height();
@@ -198,8 +198,7 @@ var scroll = function scroll(e) {
     wheeldelta.x += e.deltaFactor * e.deltaX;
     wheeldelta.y += e.deltaFactor * e.deltaY;
     if (!wheeling) {
-        console.log('start wheeling!');
-        
+       
         
         
         //get starting position of offset.left
@@ -221,7 +220,7 @@ var scroll = function scroll(e) {
 
     clearTimeout(wheeling);
     wheeling = setTimeout(function() {
-        console.log('stop wheeling!');
+       
         wheeling = undefined;
         
         // reset wheeldelta
@@ -278,7 +277,7 @@ var scroll = function scroll(e) {
     if(vertical){
         scrollBg(e.deltaY * e.deltaFactor);
     }else{
-        // console.log("step x : " +  wheeldelta.x + "step y : " +  wheeldelta.y);
+        
         scrollBg(e.deltaX * e.deltaFactor);
     }
 };
@@ -300,14 +299,14 @@ var scrollVideo = function scroll(e) {
     var listHeight = height;
     
     if (!wheeling) {
-        console.log('start wheeling!');
+        
         indicatorTop = $(".vprogress-indicator").position().top;
     }
     
     
     clearTimeout(wheeling);
     wheeling = setTimeout(function() {
-        console.log('stop wheeling!');
+       
         wheeling = undefined;
         
         // reset wheeldelta
@@ -322,7 +321,6 @@ var scrollVideo = function scroll(e) {
     var top = indicatorTop -  wheeldelta.y;
     
     
-    console.log( "top : " +  top + " vproressTop: " + vproressTop);
     if(top >= indiCtHeight - 36){
         top = indiCtHeight - 36; 
     }
@@ -539,7 +537,6 @@ $(function(){
         $(window).unbind("mousewheel");
         $(window).on('mousewheel',scroll);
             
-        console.log(magVideoActive);
         if(!magVideoActive){
             $(this).parent().parent().fadeOut();
             $(this).parent().find(".video_player").each(function(){
@@ -630,7 +627,7 @@ $(function(){
         $(".video-2-3-preview").removeClass("active");
         $(this).addClass("active");
         $(".video-2-3-preview").each(function(){
-                console.log("each");
+               
                 $(this).find(".play_btn").hide();
                 $(this).css({
                     "border": "#C66471",
@@ -652,7 +649,7 @@ $(function(){
         $(".video-2-4-preview").removeClass("active");
         $(this).addClass("active");
         $(".video-2-4-preview").each(function(){
-                console.log("each");
+               
                 $(this).find(".play_btn").hide();
                 $(this).css({
                     "border": "#C66471",
@@ -742,21 +739,21 @@ $(function(){
         ga('send','event','rollerlash','rollerlash/toec','click');
     });
     
-    $(".vprogress-indicator").udraggable({
-        containment: 'parent',
-        drag: function(e, ui){
-            var pos = ui.position;
-            var height = $(".vprogress").height();
-            var indiCtHeight = $(".vprogress-indicator-ct").height();
-            
-            console.log("height: " + height + " indiCtHeight: " + indiCtHeight);
-            var outerTop =   (-1 * pos.top / (indiCtHeight - 36) * height);
-            $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
+    if($(".vprogress-indicator").udraggable){
+        $(".vprogress-indicator").udraggable({
+            containment: 'parent',
+            drag: function(e, ui){
+                var pos = ui.position;
+                var height = $(".vprogress").height();
+                var indiCtHeight = $(".vprogress-indicator-ct").height();
+                
+                
+                var outerTop =   (-1 * pos.top / (indiCtHeight - 36) * height);
+                $(".hs-content-2-4-video-list").css({ "top": outerTop + "px"});
 
-        }
-    });
-    
-    
+            }
+        });
+    }
     
 });
 

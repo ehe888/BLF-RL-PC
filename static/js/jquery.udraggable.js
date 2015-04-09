@@ -143,7 +143,7 @@
                 helper:           this.$el,
                 offset:           { top: start.y, left: start.x},
                 originalPosition: { top: start.y, left: start.x},
-                position:         { top: start.y, left: start.x},
+                position:         { top: start.y, left: start.x}
             };
             if (this.options.longPress) {
                 this._start(e);
